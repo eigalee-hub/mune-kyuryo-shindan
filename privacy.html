@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>プライバシーポリシー｜ムネさんの給料ノート</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>body{margin:0}[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box}
+/* Layout: one narrow column on a 墨出し grid; one question per screen, progress as a chalk line */
+:root{
+  --paper:#EEF2F4; --sheet:#FFFFFF; --ink:#16222E; --sub:#55636F; --rule:#C9D3DA;
+  --chalk:#C8372D; --chalk-soft:rgba(200,55,45,.10); --grid:rgba(22,34,46,.05);
+  --line-green:#06C755;
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.pr{font-size:12px;color:var(--sub);letter-spacing:.04em}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1.35;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--chalk)}
+h2{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.45;margin:0;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--sub)}
+.meta{display:flex;gap:16px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+.meta b{font-family:var(--f-mono);color:var(--ink);font-weight:500}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:6px;
+  font:700 17px/1.3 var(--f-body);cursor:pointer;text-decoration:none;padding:12px 16px;text-align:center}
+.btn-main{background:var(--ink);color:var(--sheet)}
+.btn-line{background:var(--line-green);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--chalk);outline-offset:2px}
+.progress{display:flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:13px;color:var(--sub)}
+.bar{flex:1;height:3px;background:var(--rule);position:relative;border-radius:2px;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--chalk);transition:width .25s}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:block;width:100%;text-align:left;background:var(--sheet);color:var(--ink);border:1px solid var(--rule);border-radius:6px;
+  padding:14px 16px;font:500 16px/1.5 var(--f-body);cursor:pointer}
+.opt:hover{border-color:var(--ink)}
+.opt.on{border-color:var(--chalk);background:var(--chalk-soft)}
+select.opt{appearance:auto}
+.back{background:none;border:0;color:var(--sub);font:14px var(--f-body);cursor:pointer;padding:4px 0;align-self:flex-start}
+.type-tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--chalk);text-transform:uppercase}
+.reasons{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.salary{border-top:1px dashed var(--rule);padding-top:12px;display:flex;flex-direction:column;gap:2px}
+.salary .num{font-family:var(--f-mono);font-size:26px}
+.salary small,.note{font-size:12px;color:var(--sub)}
+.salary a,.note a{color:var(--sub)}
+.step{font-size:13px;color:var(--sub)}
+.stack{display:flex;flex-direction:column;gap:8px}
+.unset{font-size:12px;color:var(--chalk)}
+@media (prefers-reduced-motion: reduce){.bar i{transition:none}}
+
+.svc{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--rule);padding-top:16px}
+.svc h3{margin:0;font:700 19px/1.4 var(--f-body)}
+.svc .tags{display:flex;gap:6px;flex-wrap:wrap}
+.svc .tags span{font-size:12px;border:1px solid var(--rule);border-radius:4px;padding:2px 8px;color:var(--sub)}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.policy h2{font-size:18px} .policy p,.policy li{font-size:15px} .policy ul{margin:0;padding-left:1.2em}
+a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="sheet policy">
+<h1 style="font-size:24px">プライバシーポリシー</h1>
+<p class="lead">「ムネさんの給料ノート」（以下、当サイト）は、利用者の情報を次のとおり取り扱います。</p>
+<h2>1. 運営者</h2>
+<p>株式会社スタイルプラスブレイン（代表取締役 松浦 英雅）　東京都中野区本町6-27-8　お問い合わせ：eiga@stylebrain.com</p>
+<h2>2. 取得する情報</h2>
+<ul><li>適職タイプ診断の回答（年代、都道府県、興味のある仕事など）。氏名・電話番号・メールアドレス・職歴は取得しません</li>
+<li>アクセス解析ツール（Google アナリティクス）による閲覧情報（Cookie等を用いた、個人を特定しない情報）</li>
+<li>LINE公式アカウントで利用者が送信した内容と、友だち追加の経路</li></ul>
+<h2>3. 利用目的</h2>
+<ul><li>診断結果の表示と、診断タイプに合った情報の配信</li><li>サイトと配信内容の改善のための集計</li></ul>
+<h2>4. 第三者への提供</h2>
+<p>取得した情報を第三者に提供しません。ただし法令に基づく場合を除きます。紹介する転職サービスへの登録は、利用者ご本人が各サービスのページで行うもので、当サイトから利用者の情報を送ることはありません。</p>
+<h2>5. 広告について</h2>
+<p>当サイトはアフィリエイトプログラムを利用しており、紹介するサービスへの登録等により報酬を受け取ることがあります。</p>
+<h2>6. アクセス解析ツール</h2>
+<p>Google アナリティクスはCookieを使って情報を集めます。収集の仕組みと無効化の方法はGoogleのポリシーをご確認ください。</p>
+<h2>7. 改定</h2>
+<p>本ポリシーは必要に応じて改定し、このページで公表します。</p>
+<p class="note">制定日：2026年11月9日</p>
+</section>
+</div>
+</body>
+</html>

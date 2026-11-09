@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>転職サービスの選び方｜ムネさんの給料ノート</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>body{margin:0}[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box}
+/* Layout: one narrow column on a 墨出し grid; one question per screen, progress as a chalk line */
+:root{
+  --paper:#EEF2F4; --sheet:#FFFFFF; --ink:#16222E; --sub:#55636F; --rule:#C9D3DA;
+  --chalk:#C8372D; --chalk-soft:rgba(200,55,45,.10); --grid:rgba(22,34,46,.05);
+  --line-green:#06C755;
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.pr{font-size:12px;color:var(--sub);letter-spacing:.04em}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1.35;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--chalk)}
+h2{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.45;margin:0;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--sub)}
+.meta{display:flex;gap:16px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+.meta b{font-family:var(--f-mono);color:var(--ink);font-weight:500}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:6px;
+  font:700 17px/1.3 var(--f-body);cursor:pointer;text-decoration:none;padding:12px 16px;text-align:center}
+.btn-main{background:var(--ink);color:var(--sheet)}
+.btn-line{background:var(--line-green);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--chalk);outline-offset:2px}
+.progress{display:flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:13px;color:var(--sub)}
+.bar{flex:1;height:3px;background:var(--rule);position:relative;border-radius:2px;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--chalk);transition:width .25s}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:block;width:100%;text-align:left;background:var(--sheet);color:var(--ink);border:1px solid var(--rule);border-radius:6px;
+  padding:14px 16px;font:500 16px/1.5 var(--f-body);cursor:pointer}
+.opt:hover{border-color:var(--ink)}
+.opt.on{border-color:var(--chalk);background:var(--chalk-soft)}
+select.opt{appearance:auto}
+.back{background:none;border:0;color:var(--sub);font:14px var(--f-body);cursor:pointer;padding:4px 0;align-self:flex-start}
+.type-tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--chalk);text-transform:uppercase}
+.reasons{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.salary{border-top:1px dashed var(--rule);padding-top:12px;display:flex;flex-direction:column;gap:2px}
+.salary .num{font-family:var(--f-mono);font-size:26px}
+.salary small,.note{font-size:12px;color:var(--sub)}
+.salary a,.note a{color:var(--sub)}
+.step{font-size:13px;color:var(--sub)}
+.stack{display:flex;flex-direction:column;gap:8px}
+.unset{font-size:12px;color:var(--chalk)}
+@media (prefers-reduced-motion: reduce){.bar i{transition:none}}
+
+.svc{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--rule);padding-top:16px}
+.svc h3{margin:0;font:700 19px/1.4 var(--f-body)}
+.svc .tags{display:flex;gap:6px;flex-wrap:wrap}
+.svc .tags span{font-size:12px;border:1px solid var(--rule);border-radius:4px;padding:2px 8px;color:var(--sub)}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.policy h2{font-size:18px} .policy p,.policy li{font-size:15px} .policy ul{margin:0;padding-left:1.2em}
+a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="pr">本ページはプロモーション（広告）を含みます。紹介するサービスへの登録により、当サイトが報酬を受け取ることがあります。</p>
+  <section class="sheet">
+    <span class="type-tag" id="tcode">FOR YOU</span>
+    <h1 id="ttitle">あなたに合う<em>転職サービス</em></h1>
+    <p class="lead" id="tlead">診断タイプに合わせて、住宅・建設の求人に強い転職サービスをまとめました。登録も相談も無料です。</p>
+  </section>
+  <section class="sheet" id="list"></section>
+  <section class="sheet">
+    <h2>使う前に知っておくこと</h2>
+    <ul class="reasons">
+      <li>転職エージェントは求職者側の費用が無料です（報酬は採用した会社が払います）</li>
+      <li>2つ登録すると、紹介される求人の幅が広がります</li>
+      <li>登録しても、すぐ転職する必要はありません</li>
+    </ul>
+    <a class="btn btn-ghost" href="index.html" id="back">診断をやり直す</a>
+  </section>
+  <p class="note">各サービスの内容は掲載時点のものです。最新の条件は各サービスの公式ページで確認してください。<a href="privacy.html">プライバシーポリシー</a></p>
+</div>
+<script>
+/* ===== 設定：ASPの広告リンク。{subid} は src_type_intro に自動で置き換わる ===== */
+const SERVICES = {
+  // name, desc, tags, url（ASPの広告リンク。サブIDの付け方はASPごとに違うので {subid} の位置を合わせる）, types
+  list: [
+    { id:"kenchiku", name:"建築転職", desc:"建築系の技術者に特化した転職エージェント。（説明文はASPの案件ページで確認して書き直す）", tags:["施工管理","設計","経験者向け"], url:"", types:["leader","design"] },
+    { id:"beskyari", name:"ベスキャリ建設", desc:"建設業界に特化した転職支援サービス。（説明文はASPの案件ページで確認して書き直す）", tags:["施工管理","建設"], url:"", types:["leader","rookie","craft"] },
+    { id:"sekoukanri", name:"施工管理ジョブ", desc:"施工管理の求人に特化した転職サービス。（説明文はASPの案件ページで確認して書き直す）", tags:["施工管理"], url:"", types:["leader","rookie"] }
+    // 住宅営業・職人向けの案件が見つかったら追加する
+  ]
+};
+/* ========================================================================= */
+const TYPES={leader:["TYPE A · LEADER","現場リーダー型"],sales:["TYPE B · SALES","提案営業型"],design:["TYPE C · DESIGN","ものづくり設計型"],craft:["TYPE D · CRAFT","職人型"],rookie:["TYPE E · ROOKIE","未経験チャレンジ型"]};
+const q=new URLSearchParams(location.search);
+const clean=v=>(v||"").replace(/[^a-z0-9_]/gi,"").slice(0,40);
+const src=clean(q.get("src"))||"direct", type=TYPES[q.get("type")]?q.get("type"):"", via=clean(q.get("via"))||"web";
+if(type){ document.getElementById("tcode").textContent=TYPES[type][0]; document.getElementById("ttitle").innerHTML=TYPES[type][1]+"に合う<em>転職サービス</em>"; }
+let items=SERVICES.list.filter(s=>!type||s.types.includes(type));
+if(!items.length) items=SERVICES.list;
+const box=document.getElementById("list");
+box.innerHTML='<h2>おすすめ '+items.length+' 件</h2>';
+items.forEach(s=>{
+  const subid=[src,type||"all",via].join("_");
+  const href=s.url?s.url.replace("{subid}",encodeURIComponent(subid)):"#";
+  const d=document.createElement("div"); d.className="svc";
+  d.innerHTML=`<h3>${s.name}</h3><p>${s.desc}</p><div class="tags">${s.tags.map(t=>"<span>"+t+"</span>").join("")}</div>
+  <a class="btn btn-main" href="${href}" target="_blank" rel="noopener sponsored" ${s.url?"":'aria-disabled="true"'}>${s.url?"公式サイトで無料登録（PR）":"準備中"}</a>`;
+  d.querySelector("a").addEventListener("click",()=>{ try{ window.gtag&&gtag("event","asp_click",{service:s.id,src,type,via}); }catch(e){} });
+  box.appendChild(d);
+});
+document.getElementById("back").href="index.html?src="+src;
+</script>
+</body>
+</html>

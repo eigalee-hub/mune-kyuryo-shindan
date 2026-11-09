@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>住宅業界 適職タイプ診断</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+/* Layout: one narrow column on a 墨出し grid; one question per screen, progress as a chalk line */
+:root{
+  --paper:#EEF2F4; --sheet:#FFFFFF; --ink:#16222E; --sub:#55636F; --rule:#C9D3DA;
+  --chalk:#C8372D; --chalk-soft:rgba(200,55,45,.10); --grid:rgba(22,34,46,.05);
+  --line-green:#06C755;
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.pr{font-size:12px;color:var(--sub);letter-spacing:.04em}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1.35;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--chalk)}
+h2{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.45;margin:0;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--sub)}
+.meta{display:flex;gap:16px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+.meta b{font-family:var(--f-mono);color:var(--ink);font-weight:500}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:6px;
+  font:700 17px/1.3 var(--f-body);cursor:pointer;text-decoration:none;padding:12px 16px;text-align:center}
+.btn-main{background:var(--ink);color:var(--sheet)}
+.btn-line{background:var(--line-green);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--chalk);outline-offset:2px}
+.progress{display:flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:13px;color:var(--sub)}
+.bar{flex:1;height:3px;background:var(--rule);position:relative;border-radius:2px;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--chalk);transition:width .25s}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:block;width:100%;text-align:left;background:var(--sheet);color:var(--ink);border:1px solid var(--rule);border-radius:6px;
+  padding:14px 16px;font:500 16px/1.5 var(--f-body);cursor:pointer}
+.opt:hover{border-color:var(--ink)}
+.opt.on{border-color:var(--chalk);background:var(--chalk-soft)}
+select.opt{appearance:auto}
+.back{background:none;border:0;color:var(--sub);font:14px var(--f-body);cursor:pointer;padding:4px 0;align-self:flex-start}
+.type-tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--chalk);text-transform:uppercase}
+.reasons{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.salary{border-top:1px dashed var(--rule);padding-top:12px;display:flex;flex-direction:column;gap:2px}
+.salary .num{font-family:var(--f-mono);font-size:26px}
+.salary small,.note{font-size:12px;color:var(--sub)}
+.salary a,.note a{color:var(--sub)}
+.step{font-size:13px;color:var(--sub)}
+.stack{display:flex;flex-direction:column;gap:8px}
+.unset{font-size:12px;color:var(--chalk)}
+@media (prefers-reduced-motion: reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="pr">本ページはプロモーション（広告）を含みます</p>
+
+  <section class="sheet" id="v-start">
+    <span class="type-tag">住宅業界 適職タイプ診断</span>
+    <h1>あなたに合う<em>住宅業界の仕事</em>が3分で分かる</h1>
+    <p class="lead">施工管理・住宅営業・設計・職人。7つの質問に答えると、向いている仕事のタイプと、年収の目安が分かります。</p>
+    <div class="meta"><span>質問 <b>7</b> 問</span><span>所要 <b>3</b> 分</span><span>名前・連絡先の入力 <b>なし</b></span></div>
+    <button class="btn btn-main" id="start" type="button">診断をはじめる</button>
+  </section>
+
+  <section class="sheet" id="v-q" hidden>
+    <div class="progress"><span id="qnum">1 / 7</span><div class="bar"><i id="qbar" style="width:0%"></i></div></div>
+    <h2 id="qtext"></h2>
+    <div class="opts" id="qopts"></div>
+    <button class="back" id="back" type="button">← ひとつ戻る</button>
+  </section>
+
+  <section class="sheet" id="v-result" hidden>
+    <span class="type-tag" id="r-code"></span>
+    <h2 id="r-name"></h2>
+    <p id="r-desc"></p>
+    <ul class="reasons" id="r-reasons"></ul>
+    <div class="salary" id="r-salary" hidden>
+      <small>この仕事の年収の目安（全国平均）</small>
+      <span class="num" id="r-salary-num"></span>
+      <small id="r-salary-src"></small>
+    </div>
+  </section>
+
+  <section class="sheet" id="v-line" hidden>
+    <h2>詳しい結果は LINE で受け取れます</h2>
+    <p class="lead">タイプ別の「年収を上げた人のモデルケース」と「求人の探し方」を無料でお送りします。</p>
+    <div class="stack">
+      <span class="step">1. 友だち追加する</span>
+      <a class="btn btn-line" id="line-add" href="#" target="_blank" rel="noopener">LINEで詳しい結果を受け取る</a>
+      <span class="step">2. 追加したら、診断結果を送信する</span>
+      <a class="btn btn-ghost" id="line-send" href="#" target="_blank" rel="noopener">診断結果をLINEに送る</a>
+      <span class="unset" id="line-unset" hidden>※ プレビュー：LINEのURLがまだ設定されていません</span>
+    </div>
+  </section>
+
+  <section class="sheet" id="v-intro" hidden>
+    <h2 id="i-title">このタイプに合う転職サービス</h2>
+    <p class="lead">LINEを使わない方は、こちらから直接見られます。</p>
+    <a class="btn btn-main" id="intro-link" href="#" target="_blank" rel="noopener">おすすめの転職サービスを見る</a>
+    <button class="btn btn-ghost" id="retry" type="button">もう一度診断する</button>
+  </section>
+
+  <p class="note">回答は診断結果の表示と、個人を特定しない形でのアクセス集計にのみ使い、第三者には提供しません。<a href="#" id="privacy">プライバシーポリシー</a></p>
+</div>
+
+<script>
+/* ===== 設定（公開前にここだけ書き換える） ===== */
+const CONFIG = {
+  // LINE友だち追加URL。Lステップ／エルメの「流入経路」ごとのURLを src 別に入れる。無い src は default。
+  lineAdd: { default: "", bySrc: { /* tt_sekou: "https://liff.line.me/...", ig_sekou: "..." */ } },
+  // LINE公式アカウントのID（@から）。結果コード送信ボタンに使う
+  lineId: "",
+  // タイプ別の転職サービス紹介ページ（自社サイト）。?src= と &type= を自動で付ける
+  introBase: "intro.html",
+  privacyUrl: "privacy.html",
+  // 年収の目安（job tag 等の公的統計）。空なら表示しない
+  salary: {
+    leader: { text: "679.1万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（建築施工管理技術者）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/21" },
+    sales:  { text: "660.7万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（住宅・不動産営業）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/59" },
+    design: { text: "679.1万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（建築設計技術者）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/20" },
+    craft:  { text: "485.5万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（大工）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/26" },
+    rookie: { text: "", src: "", url: "" }
+  },
+  ga4: "" // 例 G-XXXXXXX。空なら計測タグを読まない
+};
+/* ============================================ */
+
+const TYPES = {
+  leader:{code:"TYPE A · LEADER", name:"現場リーダー型（施工管理）", desc:"人と工程をまとめて、家を予定どおり建てきる力がある人。住宅業界でいちばん求人が多く、資格と経験がそのまま年収に効く仕事です。",
+    reasons:["段取りを考えて人を動かすのが苦にならない","経験や資格が評価されやすい環境を選べる","工務店・ハウスメーカーどちらにも道がある"]},
+  sales:{code:"TYPE B · SALES", name:"提案営業型（住宅営業）", desc:"お客さんの話を聞いて、一生に一度の買い物を形にする人。成果が給料に出やすく、20代から年収を伸ばしやすい仕事です。",
+    reasons:["人と話すことで力を発揮できる","成果が数字で見える働き方が合う","未経験でも採用されやすい職種がある"]},
+  design:{code:"TYPE C · DESIGN", name:"ものづくり設計型（設計・CAD）", desc:"図面で家の形を決める人。CADオペレーターから始めて設計に進む道もあり、休みや働き方を整えやすい職種です。",
+    reasons:["一人で集中して形にする作業が好き","資格（建築士など）で長く強みになる","現場よりオフィス中心で働ける"]},
+  craft:{code:"TYPE D · CRAFT", name:"職人型（大工・設備）", desc:"自分の手で家をつくる人。人手が足りず、技術を持つ人の価値が上がり続けている仕事です。",
+    reasons:["体を動かして、目に見える成果を出したい","技術を身につけて一生食べていける","社員大工など安定した働き方も増えている"]},
+  rookie:{code:"TYPE E · ROOKIE", name:"未経験チャレンジ型", desc:"業界の外から住宅業界に入るなら今がチャンス。未経験から育てる会社が増えていて、20代はとくに歓迎されています。",
+    reasons:["未経験歓迎の求人が多い業界","入ってから資格を取って年収を上げられる","まずは向いている職種を知ることから"]}
+};
+
+const QUESTIONS = [
+  {id:"age", text:"あなたの年代は？", opts:[["10代後半","u20"],["20代前半","20a"],["20代後半","20b"],["30代","30"],["40代以上","40"]]},
+  {id:"pref", text:"住んでいる都道府県は？", select:true},
+  {id:"status", text:"今の状況に近いのは？", opts:[["住宅・建設の仕事をしている","in"],["別の業界で働いている","out"],["学生・その他","other"]]},
+  {id:"interest", text:"いちばん興味がある仕事は？", opts:[["現場をまとめる","leader"],["お客さんと話して提案する","sales"],["図面を描く","design"],["自分の手でつくる","craft"],["まだ分からない","none"]]},
+  {id:"change", text:"今いちばん変えたいことは？", opts:[["給料","pay"],["休み・残業","rest"],["人間関係","people"],["将来性","future"]]},
+  {id:"timing", text:"転職を考えるとしたら？", opts:[["3か月以内","3m"],["半年以内","6m"],["いい所があれば","any"],["まだ考えていない","no"]]},
+  {id:"license", text:"持っている資格は？", opts:[["施工管理技士・建築士","tech"],["宅建士","takken"],["普通免許だけ","car"],["特になし","none"]]}
+];
+const PREFS="北海道,青森県,岩手県,宮城県,秋田県,山形県,福島県,茨城県,栃木県,群馬県,埼玉県,千葉県,東京都,神奈川県,新潟県,富山県,石川県,福井県,山梨県,長野県,岐阜県,静岡県,愛知県,三重県,滋賀県,京都府,大阪府,兵庫県,奈良県,和歌山県,鳥取県,島根県,岡山県,広島県,山口県,徳島県,香川県,愛媛県,高知県,福岡県,佐賀県,長崎県,熊本県,大分県,宮崎県,鹿児島県,沖縄県".split(",");
+
+function judge(a){
+  const s={leader:0,sales:0,design:0,craft:0,rookie:0};
+  ({in:()=>{s.leader+=2;s.craft+=1;s.design+=1}, out:()=>{s.rookie+=2;s.sales+=1}, other:()=>{s.rookie+=3}})[a.status]?.();
+  ({leader:()=>s.leader+=3, sales:()=>s.sales+=3, design:()=>s.design+=3, craft:()=>s.craft+=3, none:()=>s.rookie+=2})[a.interest]?.();
+  ({pay:()=>{s.sales+=1;s.leader+=1}, rest:()=>{s.design+=1}, future:()=>{s.rookie+=1;s.leader+=1}})[a.change]?.();
+  ({tech:()=>{s.leader+=2;s.design+=2}, takken:()=>{s.sales+=2}, car:()=>{s.craft+=1;s.sales+=1}, none:()=>{s.rookie+=1}})[a.license]?.();
+  const order=[a.interest==="none"?"rookie":a.interest,"leader","sales","design","craft","rookie"];
+  let best=order[0]; for(const k of order){ if(s[k]>s[best]) best=k; }
+  return best;
+}
+
+const params=new URLSearchParams(location.search);
+const SRC=(params.get("src")||"direct").replace(/[^a-z0-9_]/gi,"").slice(0,40);
+const $=id=>document.getElementById(id);
+const answers={}; let qi=0;
+
+function track(name,props){ try{ if(window.gtag) gtag("event",name,Object.assign({src:SRC},props||{})); }catch(e){} }
+if(CONFIG.ga4){ const t=document.createElement("script"); t.async=true; t.src="https://www.googletagmanager.com/gtag/js?id="+CONFIG.ga4; document.head.appendChild(t);
+  window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments)}; gtag("js",new Date()); gtag("config",CONFIG.ga4); }
+
+function show(ids){ ["v-start","v-q","v-result","v-line","v-intro"].forEach(v=>$(v).hidden=!ids.includes(v)); window.scrollTo(0,0); }
+
+function renderQ(){
+  const q=QUESTIONS[qi];
+  $("qnum").textContent=(qi+1)+" / "+QUESTIONS.length;
+  $("qbar").style.width=(qi/QUESTIONS.length*100)+"%";
+  $("qtext").textContent=q.text;
+  const box=$("qopts"); box.innerHTML="";
+  if(q.select){
+    const sel=document.createElement("select"); sel.className="opt"; sel.id="q-pref"; sel.setAttribute("aria-label",q.text);
+    sel.innerHTML='<option value="">選んでください</option>'+PREFS.map(p=>`<option${answers.pref===p?" selected":""}>${p}</option>`).join("");
+    sel.addEventListener("change",()=>{ if(sel.value){ answers.pref=sel.value; next(); } });
+    box.appendChild(sel);
+  } else {
+    q.opts.forEach(([label,val])=>{
+      const b=document.createElement("button"); b.type="button"; b.className="opt"+(answers[q.id]===val?" on":""); b.textContent=label;
+      b.addEventListener("click",()=>{ answers[q.id]=val; next(); });
+      box.appendChild(b);
+    });
+  }
+  $("back").hidden=qi===0;
+}
+function next(){ qi++; if(qi<QUESTIONS.length) renderQ(); else result(); }
+
+function result(){
+  const t=judge(answers), T=TYPES[t];
+  $("r-code").textContent=T.code; $("r-name").textContent="あなたは「"+T.name+"」"; $("r-desc").textContent=T.desc;
+  $("r-reasons").innerHTML=T.reasons.map(r=>"<li>"+r+"</li>").join("");
+  const sal=CONFIG.salary[t];
+  $("r-salary").hidden=!sal.text;
+  if(sal.text){ $("r-salary-num").textContent=sal.text; $("r-salary-src").innerHTML="出典："+(sal.url?`<a href="${sal.url}" target="_blank" rel="noopener">${sal.src}</a>`:sal.src); }
+  const add=CONFIG.lineAdd.bySrc[SRC]||CONFIG.lineAdd.default;
+  const msg="診断結果："+T.name.replace(/（.*）/,"");
+  $("line-add").href=add||"#";
+  $("line-send").href=CONFIG.lineId?("https://line.me/R/oaMessage/"+encodeURIComponent(CONFIG.lineId)+"/?"+encodeURIComponent(msg)):"#";
+  $("line-unset").hidden=!!(add&&CONFIG.lineId);
+  $("i-title").textContent=T.name.replace(/（.*）/,"")+"に合う転職サービス";
+  $("intro-link").href=CONFIG.introBase?(CONFIG.introBase+(CONFIG.introBase.includes("?")?"&":"?")+"src="+SRC+"&type="+t+"&via=web"):"#";
+  show(["v-result","v-line","v-intro"]);
+  track("shindan_complete",{type:t,age:answers.age,pref:answers.pref,interest:answers.interest,timing:answers.timing});
+}
+
+$("start").addEventListener("click",()=>{ qi=0; show(["v-q"]); renderQ(); track("shindan_start"); });
+$("back").addEventListener("click",()=>{ if(qi>0){ qi--; renderQ(); } });
+$("retry").addEventListener("click",()=>{ for(const k in answers) delete answers[k]; show(["v-start"]); });
+$("line-add").addEventListener("click",()=>track("line_click",{step:"add"}));
+$("line-send").addEventListener("click",()=>track("line_click",{step:"send"}));
+$("intro-link").addEventListener("click",()=>track("intro_click"));
+if(CONFIG.privacyUrl) $("privacy").href=CONFIG.privacyUrl;
+</script>
+</body>
+</html>
