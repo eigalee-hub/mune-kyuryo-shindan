@@ -92,7 +92,7 @@ select.opt{appearance:auto}
     <p id="r-desc"></p>
     <ul class="reasons" id="r-reasons"></ul>
     <div class="salary" id="r-salary" hidden>
-      <small>この仕事の年収の目安（全国平均）</small>
+      <small id="r-salary-label">この仕事の年収の目安（全国平均）</small>
       <span class="num" id="r-salary-num"></span>
       <small id="r-salary-src"></small>
     </div>
@@ -130,13 +130,17 @@ const CONFIG = {
   // タイプ別の転職サービス紹介ページ（自社サイト）。?src= と &type= を自動で付ける
   introBase: "intro.html",
   privacyUrl: "privacy.html",
-  // 年収の目安（job tag 等の公的統計）。空なら表示しない
+  // 年収の目安。厚生労働省「令和7年賃金構造基本統計調査」職種 第5表（企業規模10人以上・男女計）の
+  // 「きまって支給する現金給与額×12＋年間賞与その他特別給与額」を年齢階級ごとに計算した値（万円）。
+  // 診断で答えた年代の数字だけを出す。30代・40代以上は階級が複数あるので幅で出す。
+  salaryUrl: "https://www.e-stat.go.jp/stat-search/files?stat_infid=000040421120",
+  salaryAgeLabel: { u20:"19歳以下", "20a":"20〜24歳", "20b":"25〜29歳", "30":"30代", "40":"40〜50代" },
   salary: {
-    leader: { text: "679.1万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（建築施工管理技術者）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/21" },
-    sales:  { text: "660.7万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（住宅・不動産営業）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/59" },
-    design: { text: "679.1万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（建築設計技術者）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/20" },
-    craft:  { text: "485.5万円", src: "job tag（厚生労働省）令和7年賃金構造基本統計調査を加工・全年齢の全国平均（大工）", url: "https://shigoto.mhlw.go.jp/User/Occupation/Detail/26" },
-    rookie: { text: "", src: "", url: "" }
+    leader: { job:"建築技術者（施工管理・設計を含む区分）", all:"約679万円・平均43.4歳", byAge:{ u20:"352.0万円", "20a":"411.5万円", "20b":"551.0万円", "30":"636.3〜710.1万円", "40":"747.5〜879.6万円" } },
+    sales:  { job:"その他の営業職業従事者（住宅・不動産営業を含む区分）", all:"約661万円・平均42.4歳", byAge:{ u20:"311.6万円", "20a":"381.8万円", "20b":"513.0万円", "30":"596.7〜646.8万円", "40":"720.0〜871.9万円" } },
+    design: { job:"建築技術者（施工管理・設計を含む区分）", all:"約679万円・平均43.4歳", byAge:{ u20:"352.0万円", "20a":"411.5万円", "20b":"551.0万円", "30":"636.3〜710.1万円", "40":"747.5〜879.6万円" } },
+    craft:  { job:"大工", all:"約486万円・平均50.2歳", byAge:{ u20:"252.7万円", "20a":"350.8万円", "20b":"384.2万円", "30":"499.5〜593.3万円", "40":"532.6〜631.9万円" } },
+    rookie: null
   },
   ga4: "" // 例 G-XXXXXXX。空なら計測タグを読まない
 };
@@ -214,9 +218,13 @@ function result(){
   const t=judge(answers), T=TYPES[t];
   $("r-code").textContent=T.code; $("r-name").textContent="あなたは「"+T.name+"」"; $("r-desc").textContent=T.desc;
   $("r-reasons").innerHTML=T.reasons.map(r=>"<li>"+r+"</li>").join("");
-  const sal=CONFIG.salary[t];
-  $("r-salary").hidden=!sal.text;
-  if(sal.text){ $("r-salary-num").textContent=sal.text; $("r-salary-src").innerHTML="出典："+(sal.url?`<a href="${sal.url}" target="_blank" rel="noopener">${sal.src}</a>`:sal.src); }
+  const sal=CONFIG.salary[t], num=sal&&sal.byAge[answers.age];
+  $("r-salary").hidden=!num;
+  if(num){
+    $("r-salary-label").textContent="この仕事の年収の目安（"+CONFIG.salaryAgeLabel[answers.age]+"・全国平均）";
+    $("r-salary-num").textContent=num;
+    $("r-salary-src").innerHTML='出典：<a href="'+CONFIG.salaryUrl+'" target="_blank" rel="noopener">厚生労働省「令和7年賃金構造基本統計調査」</a>の「'+sal.job+'」から算出（月の給与×12＋年間賞与、企業規模10人以上）。全年齢の平均は'+sal.all+'。会社・地域・経験で大きく変わります。';
+  }
   const add=CONFIG.lineAdd.bySrc[SRC]||CONFIG.lineAdd.default;
   const msg="診断結果："+T.name.replace(/（.*）/,"");
   $("line-add").href=add||"#";

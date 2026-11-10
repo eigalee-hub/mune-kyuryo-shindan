@@ -95,11 +95,12 @@ a{color:inherit}
 <script>
 /* ===== 設定：ASPの広告リンク。{subid} は src_type_intro に自動で置き換わる ===== */
 const SERVICES = {
+  // url が空のサービスはページに出さない。説明文は掲載前にASPの案件ページで確認して書き直す。
   // name, desc, tags, url（ASPの広告リンク。サブIDの付け方はASPごとに違うので {subid} の位置を合わせる）, types
   list: [
-    { id:"kenchiku", name:"建築転職", desc:"建築系の技術者に特化した転職エージェント。（説明文はASPの案件ページで確認して書き直す）", tags:["施工管理","設計","経験者向け"], url:"", types:["leader","design"] },
-    { id:"beskyari", name:"ベスキャリ建設", desc:"建設業界に特化した転職支援サービス。（説明文はASPの案件ページで確認して書き直す）", tags:["施工管理","建設"], url:"", types:["leader","rookie","craft"] },
-    { id:"sekoukanri", name:"施工管理ジョブ", desc:"施工管理の求人に特化した転職サービス。（説明文はASPの案件ページで確認して書き直す）", tags:["施工管理"], url:"", types:["leader","rookie"] }
+    { id:"kenchiku", name:"建築転職", desc:"建築系の技術者に特化した転職エージェント。", tags:["施工管理","設計","経験者向け"], url:"", types:["leader","design"] },
+    { id:"beskyari", name:"ベスキャリ建設", desc:"建設業界に特化した転職支援サービス。", tags:["施工管理","建設"], url:"", types:["leader","rookie","craft"] },
+    { id:"sekoukanri", name:"施工管理ジョブ", desc:"施工管理の求人に特化した転職サービス。", tags:["施工管理"], url:"", types:["leader","rookie"] }
     // 住宅営業・職人向けの案件が見つかったら追加する
   ]
 };
@@ -109,10 +110,11 @@ const q=new URLSearchParams(location.search);
 const clean=v=>(v||"").replace(/[^a-z0-9_]/gi,"").slice(0,40);
 const src=clean(q.get("src"))||"direct", type=TYPES[q.get("type")]?q.get("type"):"", via=clean(q.get("via"))||"web";
 if(type){ document.getElementById("tcode").textContent=TYPES[type][0]; document.getElementById("ttitle").innerHTML=TYPES[type][1]+"に合う<em>転職サービス</em>"; }
-let items=SERVICES.list.filter(s=>!type||s.types.includes(type));
-if(!items.length) items=SERVICES.list;
+const ready=SERVICES.list.filter(s=>s.url);
+let items=ready.filter(s=>!type||s.types.includes(type));
+if(!items.length) items=ready;
 const box=document.getElementById("list");
-box.innerHTML='<h2>おすすめ '+items.length+' 件</h2>';
+box.innerHTML=items.length?'<h2>おすすめ '+items.length+' 件</h2>':'<h2>ただいま準備中です</h2><p class="lead">掲載するサービスを確認しています。準備ができたらこのページでご案内します。</p>';
 items.forEach(s=>{
   const subid=[src,type||"all",via].join("_");
   const href=s.url?s.url.replace("{subid}",encodeURIComponent(subid)):"#";
