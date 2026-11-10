@@ -102,9 +102,9 @@ select.opt{appearance:auto}
     <h2>詳しい結果は LINE で受け取れます</h2>
     <p class="lead">タイプ別の「年収を上げた人のモデルケース」と「求人の探し方」を無料でお送りします。</p>
     <div class="stack">
-      <span class="step">1. 友だち追加する</span>
+      <span class="step" id="line-step1">1. 友だち追加する</span>
       <a class="btn btn-line" id="line-add" href="#" target="_blank" rel="noopener">LINEで詳しい結果を受け取る</a>
-      <span class="step">2. 追加したら、診断結果を送信する</span>
+      <span class="step" id="line-step2">2. 追加したら、診断結果を送信する</span>
       <a class="btn btn-ghost" id="line-send" href="#" target="_blank" rel="noopener">診断結果をLINEに送る</a>
       <span class="unset" id="line-unset" hidden>※ プレビュー：LINEのURLがまだ設定されていません</span>
     </div>
@@ -183,6 +183,7 @@ function judge(a){
 
 const params=new URLSearchParams(location.search);
 const SRC=(params.get("src")||"direct").replace(/[^a-z0-9_]/gi,"").slice(0,40);
+const FROM_LINE=/_line$/.test(SRC);
 const $=id=>document.getElementById(id);
 const answers={}; let qi=0;
 
@@ -230,6 +231,8 @@ function result(){
   $("line-add").href=add||"#";
   $("line-send").href=CONFIG.lineId?("https://line.me/R/oaMessage/"+encodeURIComponent(CONFIG.lineId)+"/?"+encodeURIComponent(msg)):"#";
   $("line-unset").hidden=!!(add&&CONFIG.lineId);
+  // LINEのトークから来た人（src が _line で終わる）は友だち追加済みなので、結果を送るボタンだけ出す
+  if(FROM_LINE){ $("line-step1").hidden=true; $("line-add").hidden=true; $("line-step2").textContent="このボタンで診断結果をトークに送ってください"; $("line-send").className="btn btn-line"; }
   $("i-title").textContent=T.name.replace(/（.*）/,"")+"に合う転職サービス";
   $("intro-link").href=CONFIG.introBase?(CONFIG.introBase+(CONFIG.introBase.includes("?")?"&":"?")+"src="+SRC+"&type="+t+"&via=web"):"#";
   show(["v-result","v-line","v-intro"]);
