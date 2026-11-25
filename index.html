@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0}[hidden]{display:none!important}</style>
-<title>住宅業界 適職タイプ診断</title>
+<title>期間工メーカー診断｜ムネさんの給料ノート</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
@@ -65,16 +65,15 @@ select.opt{appearance:auto}
 .unset{font-size:12px;color:var(--chalk)}
 @media (prefers-reduced-motion: reduce){.bar i{transition:none}}
 </style>
-</head>
 <body>
 
 <div class="wrap">
   <p class="pr">本ページはプロモーション（広告）を含みます</p>
 
   <section class="sheet" id="v-start">
-    <span class="type-tag">住宅業界 適職タイプ診断</span>
-    <h1>あなたに合う<em>住宅業界の仕事</em>が3分で分かる</h1>
-    <p class="lead">施工管理・住宅営業・設計・職人。7つの質問に答えると、向いている仕事のタイプと、年収の目安が分かります。</p>
+    <span class="type-tag">期間工メーカー診断</span>
+    <h1>あなたに合う<em>期間工の選び方</em>が3分で分かる</h1>
+    <p class="lead">稼ぎ・正社員登用・日勤・すぐ入寮。7つの質問に答えると、あなたに合う求人の探し方と、応募の前に確認したいポイントが分かります。</p>
     <div class="meta"><span>質問 <b>7</b> 問</span><span>所要 <b>3</b> 分</span><span>名前・連絡先の入力 <b>なし</b></span></div>
     <button class="btn btn-main" id="start" type="button">診断をはじめる</button>
   </section>
@@ -91,92 +90,82 @@ select.opt{appearance:auto}
     <h2 id="r-name"></h2>
     <p id="r-desc"></p>
     <ul class="reasons" id="r-reasons"></ul>
-    <div class="salary" id="r-salary" hidden>
-      <small id="r-salary-label">この仕事の年収の目安（全国平均）</small>
-      <span class="num" id="r-salary-num"></span>
-      <small id="r-salary-src"></small>
+    <div class="salary">
+      <small>応募の前にここを確認</small>
+      <ul class="reasons" id="r-checks"></ul>
+      <small>祝い金・時給・満了金などの条件は時期や応募経路で変わります。応募前に必ず各社の最新の募集要項で確認してください。</small>
     </div>
   </section>
 
   <section class="sheet" id="v-line" hidden>
     <h2>詳しい結果は LINE で受け取れます</h2>
-    <p class="lead">タイプ別の「年収を上げた人のモデルケース」と「求人の探し方」を無料でお送りします。</p>
+    <p class="lead">タイプ別の「求人の比べ方」を無料でお送りします。</p>
     <div class="stack">
       <span class="step" id="line-step1">1. 友だち追加する</span>
       <a class="btn btn-line" id="line-add" href="#" target="_blank" rel="noopener">LINEで詳しい結果を受け取る</a>
       <span class="step" id="line-step2">2. 追加したら、診断結果を送信する</span>
       <a class="btn btn-ghost" id="line-send" href="#" target="_blank" rel="noopener">診断結果をLINEに送る</a>
-      <span class="unset" id="line-unset" hidden>※ プレビュー：LINEのURLがまだ設定されていません</span>
     </div>
   </section>
 
   <section class="sheet" id="v-intro" hidden>
-    <h2 id="i-title">このタイプに合う転職サービス</h2>
-    <p class="lead">LINEを使わない方は、こちらから直接見られます。</p>
-    <a class="btn btn-main" id="intro-link" href="#" target="_blank" rel="noopener">おすすめの転職サービスを見る</a>
+    <h2 id="i-title">このタイプに合う求人サービス</h2>
+    <p class="lead">タイプに合わせて、期間工・製造業の求人を探せるサービスをまとめました。</p>
+    <a class="btn btn-main" id="intro-link" href="#" target="_blank" rel="noopener">おすすめの求人サービスを見る</a>
     <button class="btn btn-ghost" id="retry" type="button">もう一度診断する</button>
   </section>
 
-  <p class="note">回答は診断結果の表示と、個人を特定しない形でのアクセス集計にのみ使い、第三者には提供しません。「ムネさん」「ヒナ」は架空の登場人物で、実在の人物・会社とは関係ありません。<a href="#" id="privacy">プライバシーポリシー</a></p>
+  <p class="note">回答は診断結果の表示と、個人を特定しない形でのアクセス集計にのみ使い、第三者には提供しません。「ムネさん」は架空の登場人物で、実在の人物・会社とは関係ありません。<a href="#" id="privacy">プライバシーポリシー</a></p>
 </div>
 
 <script>
 /* ===== 設定（公開前にここだけ書き換える） ===== */
 const CONFIG = {
-  // LINE友だち追加URL。Lステップ／エルメの「流入経路」ごとのURLを src 別に入れる。無い src は default。
-  lineAdd: { default: "https://line.me/R/ti/p/@178nkjgb", bySrc: { tt_sekou: "https://s.lmes.jp/landing-qr/2012500133-iQn6j4eH?uLand=4dJjc7", ig_sekou: "https://s.lmes.jp/landing-qr/2012500133-iQn6j4eH?uLand=XfVfGv", yt_sekou: "https://s.lmes.jp/landing-qr/2012500133-iQn6j4eH?uLand=9x1zhh", direct: "https://line.me/R/ti/p/@178nkjgb" } },
-  // LINE公式アカウントのID（@から）。結果コード送信ボタンに使う
-  lineId: "@178nkjgb",
-  // タイプ別の転職サービス紹介ページ（自社サイト）。?src= と &type= を自動で付ける
+  // LINE友だち追加URL。期間工用のLINEができたら入れる。default が空のあいだはLINEの案内を出さない。
+  // （住宅版で使っていたLINE @178nkjgb は住宅向けの配信なので、ここでは使わない）
+  lineAdd: { default: "", bySrc: {} },
+  lineId: "",
+  // タイプ別の求人サービス紹介ページ。?src= と &type= を自動で付ける
   introBase: "intro.html",
   privacyUrl: "privacy.html",
-  // 年収の目安。厚生労働省「令和7年賃金構造基本統計調査」職種 第5表（企業規模10人以上・男女計）の
-  // 「きまって支給する現金給与額×12＋年間賞与その他特別給与額」を年齢階級ごとに計算した値（万円）。
-  // 診断で答えた年代の数字だけを出す。30代・40代以上は階級が複数あるので幅で出す。
-  salaryUrl: "https://www.e-stat.go.jp/stat-search/files?stat_infid=000040421120",
-  salaryAgeLabel: { u20:"19歳以下", "20a":"20〜24歳", "20b":"25〜29歳", "30":"30代", "40":"40〜50代" },
-  salary: {
-    leader: { job:"建築技術者（施工管理・設計を含む区分）", all:"約679万円・平均43.4歳", byAge:{ u20:"352.0万円", "20a":"411.5万円", "20b":"551.0万円", "30":"636.3〜710.1万円", "40":"747.5〜879.6万円" } },
-    sales:  { job:"その他の営業職業従事者（住宅・不動産営業を含む区分）", all:"約661万円・平均42.4歳", byAge:{ u20:"311.6万円", "20a":"381.8万円", "20b":"513.0万円", "30":"596.7〜646.8万円", "40":"720.0〜871.9万円" } },
-    design: { job:"建築技術者（施工管理・設計を含む区分）", all:"約679万円・平均43.4歳", byAge:{ u20:"352.0万円", "20a":"411.5万円", "20b":"551.0万円", "30":"636.3〜710.1万円", "40":"747.5〜879.6万円" } },
-    craft:  { job:"大工", all:"約486万円・平均50.2歳", byAge:{ u20:"252.7万円", "20a":"350.8万円", "20b":"384.2万円", "30":"499.5〜593.3万円", "40":"532.6〜631.9万円" } },
-    rookie: null
-  },
   ga4: "" // 例 G-XXXXXXX。空なら計測タグを読まない
 };
 /* ============================================ */
 
 const TYPES = {
-  leader:{code:"TYPE A · LEADER", name:"現場リーダー型（施工管理）", desc:"人と工程をまとめて、家を予定どおり建てきる力がある人。住宅業界でいちばん求人が多く、資格と経験がそのまま年収に効く仕事です。",
-    reasons:["段取りを考えて人を動かすのが苦にならない","経験や資格が評価されやすい環境を選べる","工務店・ハウスメーカーどちらにも道がある"]},
-  sales:{code:"TYPE B · SALES", name:"提案営業型（住宅営業）", desc:"お客さんの話を聞いて、一生に一度の買い物を形にする人。成果が給料に出やすく、20代から年収を伸ばしやすい仕事です。",
-    reasons:["人と話すことで力を発揮できる","成果が数字で見える働き方が合う","未経験でも採用されやすい職種がある"]},
-  design:{code:"TYPE C · DESIGN", name:"ものづくり設計型（設計・CAD）", desc:"図面で家の形を決める人。CADオペレーターから始めて設計に進む道もあり、休みや働き方を整えやすい職種です。",
-    reasons:["一人で集中して形にする作業が好き","資格（建築士など）で長く強みになる","現場よりオフィス中心で働ける"]},
-  craft:{code:"TYPE D · CRAFT", name:"職人型（大工・設備）", desc:"自分の手で家をつくる人。人手が足りず、技術を持つ人の価値が上がり続けている仕事です。",
-    reasons:["体を動かして、目に見える成果を出したい","技術を身につけて一生食べていける","社員大工など安定した働き方も増えている"]},
-  rookie:{code:"TYPE E · ROOKIE", name:"未経験チャレンジ型", desc:"業界の外から住宅業界に入るなら今がチャンス。未経験から育てる会社が増えていて、20代はとくに歓迎されています。",
-    reasons:["未経験歓迎の求人が多い業界","入ってから資格を取って年収を上げられる","まずは向いている職種を知ることから"]}
+  earn:{code:"TYPE A · EARN", name:"とにかく貯める型（大手メーカー）", desc:"短い期間でまとまったお金を貯めたい人。交替勤務の手当・満了金・入社祝い金が大きい、大手自動車メーカーの期間工が候補になります。",
+    reasons:["夜勤・交替勤務の手当で月収が上がりやすい","契約を満了するごとに満了金が出るメーカーが多い","寮費・光熱費が無料のメーカーなら、そのまま貯金に回せる"],
+    checks:["入社祝い金は「いつ・何回に分けて・どんな条件で」支払われるか","月収例に残業・夜勤・休日出勤がどれだけ含まれているか","満了金は何か月ごとに、いくら出るか"]},
+  career:{code:"TYPE B · CAREER", name:"正社員登用ねらい型", desc:"期間工を足がかりに、メーカーの正社員を目指したい人。登用の実績を公表しているメーカーを選び、試験の条件を先に確かめるのが近道です。",
+    reasons:["期間工から正社員になった人数を公表しているメーカーがある","働きながら登用試験を受けられる","製造の経験そのものが次の仕事の武器になる"],
+    checks:["正社員登用の実績（何年で何人か）を公表しているか","登用試験を受けられる条件（勤続期間・推薦など）","契約は最長何年までか"]},
+  day:{code:"TYPE C · STEADY", name:"続けやすさ重視型（日勤・地元）", desc:"体や生活リズムに無理なく続けたい人。日勤のみ・地元から通える求人に絞ると、手取りは少し下がっても長く続けやすくなります。",
+    reasons:["日勤のみ・交替なしの工場求人もある","自宅から通える距離で探せる","慣れた生活を変えずに働ける"],
+    checks:["日勤のみか、いずれ交替勤務に入るのか","月収例が交替勤務を前提にした数字になっていないか","通勤手当と、車通勤できるかどうか"]},
+  start:{code:"TYPE D · START", name:"すぐ寮つきで始める型", desc:"住む所と仕事を一度に決めて、すぐに働き始めたい人。未経験OK・入寮が早い求人を、複数のメーカーから比べて選ぶのがおすすめです。",
+    reasons:["寮つきなら引っ越しの初期費用を抑えられる","未経験から始める人が多い仕事","面接から入社までが早い求人もある"],
+    checks:["入寮できる日と、最初の給料が出る日","寮費・光熱費・食費のうち、自己負担になるもの","赴任旅費が出るか（立て替えが必要か）"]}
 };
 
 const QUESTIONS = [
-  {id:"age", text:"あなたの年代は？", opts:[["10代後半","u20"],["20代前半","20a"],["20代後半","20b"],["30代","30"],["40代以上","40"]]},
-  {id:"pref", text:"住んでいる都道府県は？", select:true},
-  {id:"status", text:"今の状況に近いのは？", opts:[["住宅・建設の仕事をしている","in"],["別の業界で働いている","out"],["学生・その他","other"]]},
-  {id:"interest", text:"いちばん興味がある仕事は？", opts:[["現場をまとめる","leader"],["お客さんと話して提案する","sales"],["図面を描く","design"],["自分の手でつくる","craft"],["まだ分からない","none"]]},
-  {id:"change", text:"今いちばん変えたいことは？", opts:[["給料","pay"],["休み・残業","rest"],["人間関係","people"],["将来性","future"]]},
-  {id:"timing", text:"転職を考えるとしたら？", opts:[["3か月以内","3m"],["半年以内","6m"],["いい所があれば","any"],["まだ考えていない","no"]]},
-  {id:"license", text:"持っている資格は？", opts:[["施工管理技士・建築士","tech"],["宅建士","takken"],["普通免許だけ","car"],["特になし","none"]]}
+  {id:"age", text:"あなたの年代は？", opts:[["10代後半","u20"],["20代","20"],["30代","30"],["40代","40"],["50代以上","50"]]},
+  {id:"exp", text:"工場で働いたことはありますか？", opts:[["ある（期間工・派遣・正社員など）","yes"],["ない","no"]]},
+  {id:"goal", text:"いちばん大事にしたいことは？", opts:[["とにかくお金を貯めたい","earn"],["正社員を目指したい","career"],["体に無理なく続けたい","day"],["すぐに住む所と仕事がほしい","start"]]},
+  {id:"shift", text:"夜勤・交替勤務は？", opts:[["大丈夫","ok"],["できれば日勤だけがいい","day"],["やってみないと分からない","unknown"]]},
+  {id:"dorm", text:"住むところは？", opts:[["寮に入りたい","dorm"],["今の家から通いたい","home"]]},
+  {id:"area", text:"働く場所は？", opts:[["全国どこでもいい","any"],["地元の近くがいい","local"]]},
+  {id:"timing", text:"働き始めたい時期は？", opts:[["1か月以内","1m"],["3か月以内","3m"],["いい所があれば","any"]]}
 ];
-const PREFS="北海道,青森県,岩手県,宮城県,秋田県,山形県,福島県,茨城県,栃木県,群馬県,埼玉県,千葉県,東京都,神奈川県,新潟県,富山県,石川県,福井県,山梨県,長野県,岐阜県,静岡県,愛知県,三重県,滋賀県,京都府,大阪府,兵庫県,奈良県,和歌山県,鳥取県,島根県,岡山県,広島県,山口県,徳島県,香川県,愛媛県,高知県,福岡県,佐賀県,長崎県,熊本県,大分県,宮崎県,鹿児島県,沖縄県".split(",");
 
 function judge(a){
-  const s={leader:0,sales:0,design:0,craft:0,rookie:0};
-  ({in:()=>{s.leader+=2;s.craft+=1;s.design+=1}, out:()=>{s.rookie+=2;s.sales+=1}, other:()=>{s.rookie+=3}})[a.status]?.();
-  ({leader:()=>s.leader+=3, sales:()=>s.sales+=3, design:()=>s.design+=3, craft:()=>s.craft+=3, none:()=>s.rookie+=2})[a.interest]?.();
-  ({pay:()=>{s.sales+=1;s.leader+=1}, rest:()=>{s.design+=1}, future:()=>{s.rookie+=1;s.leader+=1}})[a.change]?.();
-  ({tech:()=>{s.leader+=2;s.design+=2}, takken:()=>{s.sales+=2}, car:()=>{s.craft+=1;s.sales+=1}, none:()=>{s.rookie+=1}})[a.license]?.();
-  const order=[a.interest==="none"?"rookie":a.interest,"leader","sales","design","craft","rookie"];
+  const s={earn:0,career:0,day:0,start:0};
+  if(s[a.goal]!==undefined) s[a.goal]+=3;
+  ({ok:()=>{s.earn+=2;s.career+=1}, day:()=>{s.day+=3}, unknown:()=>{s.start+=1}})[a.shift]?.();
+  ({yes:()=>{s.earn+=1;s.career+=1}, no:()=>{s.start+=1}})[a.exp]?.();
+  ({dorm:()=>{s.earn+=1;s.start+=1}, home:()=>{s.day+=2}})[a.dorm]?.();
+  ({any:()=>{s.earn+=1}, local:()=>{s.day+=1}})[a.area]?.();
+  ({"1m":()=>{s.start+=2}})[a.timing]?.();
+  const order=[a.goal,"earn","career","day","start"];
   let best=order[0]; for(const k of order){ if(s[k]>s[best]) best=k; }
   return best;
 }
@@ -199,18 +188,11 @@ function renderQ(){
   $("qbar").style.width=(qi/QUESTIONS.length*100)+"%";
   $("qtext").textContent=q.text;
   const box=$("qopts"); box.innerHTML="";
-  if(q.select){
-    const sel=document.createElement("select"); sel.className="opt"; sel.id="q-pref"; sel.setAttribute("aria-label",q.text);
-    sel.innerHTML='<option value="">選んでください</option>'+PREFS.map(p=>`<option${answers.pref===p?" selected":""}>${p}</option>`).join("");
-    sel.addEventListener("change",()=>{ if(sel.value){ answers.pref=sel.value; next(); } });
-    box.appendChild(sel);
-  } else {
-    q.opts.forEach(([label,val])=>{
-      const b=document.createElement("button"); b.type="button"; b.className="opt"+(answers[q.id]===val?" on":""); b.textContent=label;
-      b.addEventListener("click",()=>{ answers[q.id]=val; next(); });
-      box.appendChild(b);
-    });
-  }
+  q.opts.forEach(([label,val])=>{
+    const b=document.createElement("button"); b.type="button"; b.className="opt"+(answers[q.id]===val?" on":""); b.textContent=label;
+    b.addEventListener("click",()=>{ answers[q.id]=val; next(); });
+    box.appendChild(b);
+  });
   $("back").hidden=qi===0;
 }
 function next(){ qi++; if(qi<QUESTIONS.length) renderQ(); else result(); }
@@ -219,24 +201,20 @@ function result(){
   const t=judge(answers), T=TYPES[t];
   $("r-code").textContent=T.code; $("r-name").textContent="あなたは「"+T.name+"」"; $("r-desc").textContent=T.desc;
   $("r-reasons").innerHTML=T.reasons.map(r=>"<li>"+r+"</li>").join("");
-  const sal=CONFIG.salary[t], num=sal&&sal.byAge[answers.age];
-  $("r-salary").hidden=!num;
-  if(num){
-    $("r-salary-label").textContent="この仕事の年収の目安（"+CONFIG.salaryAgeLabel[answers.age]+"・全国平均）";
-    $("r-salary-num").textContent=num;
-    $("r-salary-src").innerHTML='出典：<a href="'+CONFIG.salaryUrl+'" target="_blank" rel="noopener">厚生労働省「令和7年賃金構造基本統計調査」</a>の「'+sal.job+'」から算出（月の給与×12＋年間賞与、企業規模10人以上）。全年齢の平均は'+sal.all+'。会社・地域・経験で大きく変わります。';
-  }
+  $("r-checks").innerHTML=T.checks.map(r=>"<li>"+r+"</li>").join("");
   const add=CONFIG.lineAdd.bySrc[SRC]||CONFIG.lineAdd.default;
-  const msg="診断結果："+T.name.replace(/（.*）/,"");
-  $("line-add").href=add||"#";
-  $("line-send").href=CONFIG.lineId?("https://line.me/R/oaMessage/"+encodeURIComponent(CONFIG.lineId)+"/?"+encodeURIComponent(msg)):"#";
-  $("line-unset").hidden=!!(add&&CONFIG.lineId);
-  // LINEのトークから来た人（src が _line で終わる）は友だち追加済みなので、結果を送るボタンだけ出す
-  if(FROM_LINE){ $("line-step1").hidden=true; $("line-add").hidden=true; $("line-step2").textContent="このボタンで診断結果をトークに送ってください"; $("line-send").className="btn btn-line"; }
-  $("i-title").textContent=T.name.replace(/（.*）/,"")+"に合う転職サービス";
-  $("intro-link").href=CONFIG.introBase?(CONFIG.introBase+(CONFIG.introBase.includes("?")?"&":"?")+"src="+SRC+"&type="+t+"&via=web"):"#";
-  show(["v-result","v-line","v-intro"]);
-  track("shindan_complete",{type:t,age:answers.age,pref:answers.pref,interest:answers.interest,timing:answers.timing});
+  const useLine=!!(add&&CONFIG.lineId);
+  if(useLine){
+    const msg="診断結果："+T.name.replace(/（.*）/,"");
+    $("line-add").href=add;
+    $("line-send").href="https://line.me/R/oaMessage/"+encodeURIComponent(CONFIG.lineId)+"/?"+encodeURIComponent(msg);
+    // LINEのトークから来た人（src が _line で終わる）は友だち追加済みなので、結果を送るボタンだけ出す
+    if(FROM_LINE){ $("line-step1").hidden=true; $("line-add").hidden=true; $("line-step2").textContent="このボタンで診断結果をトークに送ってください"; $("line-send").className="btn btn-line"; }
+  }
+  $("i-title").textContent=T.name.replace(/（.*）/,"")+"に合う求人サービス";
+  $("intro-link").href=CONFIG.introBase?(CONFIG.introBase+(CONFIG.introBase.includes("?")?"&":"?")+"src="+SRC+"&type="+t+"&age="+answers.age+"&via=web"):"#";
+  show(useLine?["v-result","v-line","v-intro"]:["v-result","v-intro"]);
+  track("shindan_complete",{type:t,age:answers.age,goal:answers.goal,shift:answers.shift,timing:answers.timing});
 }
 
 $("start").addEventListener("click",()=>{ qi=0; show(["v-q"]); renderQ(); track("shindan_start"); });
