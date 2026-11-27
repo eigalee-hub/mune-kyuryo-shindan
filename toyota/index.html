@@ -68,7 +68,8 @@ p{margin:0}
 .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border:0;border-radius:6px;
   font:700 17px/1.3 var(--f-body);text-decoration:none;padding:12px 16px;text-align:center;background:var(--ink);color:var(--sheet)}
 .btn:focus-visible,.jump:focus-visible{outline:3px solid var(--chalk);outline-offset:2px}
-#apply-code a{display:block;min-height:44px;padding:10px 0;font-weight:700;text-decoration:underline}
+#apply-code a{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border-radius:6px;padding:12px 16px;text-align:center;background:var(--ink);color:var(--sheet);font:700 16px/1.4 var(--f-body);text-decoration:none}
+#apply-code img{display:block}
 .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
 .src{margin:0;padding-left:1.2em;font-size:12px;color:var(--sub);display:flex;flex-direction:column;gap:4px}
 a{color:inherit}
@@ -206,9 +207,10 @@ const VIDEO_ID = "";
 const AD_ON = false;
 /* A8の広告リンク（サイト004用）。素材をそのまま貼る必要があるときは、ボタンをやめて #apply の中に発行コードを貼る */
 const AD_URL = ""; /* 関門がそろったら、サイト004で作ったリンクを入れる。空のあいだは AD_ON を true にしても出さない */
-const AD_TEXT = "【PR】押すと、株式会社スタッフ東海のトヨタ期間工の応募ページが開く。一番早い入社日と、特別手当がまだ対象かは、フォーム（7項目）を送ったあとに窓口で聞ける。履歴書の添削・面接の対策と、入社までの待機寮（規定あり）がある。押しただけでは、応募にならない。";
-/* A8の発行コード（表示計測の画像つき）をそのまま貼る必要があるときはここに入れる。入れたらボタンは使わず、枠の中にこのコードを差し込む */
-const AD_HTML = "";
+const AD_TEXT = "【PR】下の【トヨタ自動車の期間工・期間従業員】を押すと、株式会社スタッフ東海のトヨタ期間工の応募ページが開く。一番早い入社日と、特別手当がまだ対象かは、フォーム（7項目）を送ったあとに窓口で聞ける。履歴書の添削・面接の対策と、入社までの待機寮（規定あり）がある。押しただけでは、応募にならない。";
+/* A8の発行コード（サイト004「3分診断」・素材002・通常広告用。2026-11-28 管理画面から取得）。
+   A8のヘルプ：テキスト素材の文言変更・リンク部分だけの使用は禁止。コードはこのまま使い、見た目は外側のCSSだけで整える */
+const AD_HTML = '<a href="https://px.a8.net/svt/ejp?a8mat=4BGTLN+2BY7E2+5SAW+5YRHE" rel="nofollow">【トヨタ自動車の期間工・期間従業員】</a>\n<img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BGTLN+2BY7E2+5SAW+5YRHE" alt="">';
 /* GA4の測定ID（診断のトップと同じもの）。空なら計測タグを読まない */
 const GA4 = "";
 if (GA4) { const t = document.createElement("script"); t.async = true; t.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4; document.head.appendChild(t);
