@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>15の特典｜ムネさんの給料ノート</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+body{margin:0}[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box}
+/* 外へのリンクを1本も置かない */
+:root{
+  --paper:#EEF2F4; --sheet:#FFFFFF; --ink:#16222E; --sub:#55636F; --rule:#C9D3DA;
+  --chalk:#C8372D; --chalk-soft:rgba(200,55,45,.10); --grid:rgba(22,34,46,.05); --field:#F7F9FA;
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); --field:#1F2B35; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11181F; --sheet:#18222B; --ink:#E8EEF2; --sub:#9AA8B3; --rule:#2C3A46;
+  --chalk:#F06A5C; --chalk-soft:rgba(240,106,92,.14); --grid:rgba(232,238,242,.04); --field:#1F2B35; color-scheme:dark}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;overflow-wrap:anywhere;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:22px 18px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:12px}
+h1{font-family:var(--f-display);font-weight:400;font-size:27px;line-height:1.4;margin:0;text-wrap:balance}
+h1 em,h2 em{font-style:normal;color:var(--chalk)}
+h2{font-family:var(--f-display);font-weight:400;font-size:20px;line-height:1.45;margin:0;text-wrap:balance}
+h3{font-size:16px;margin:4px 0 0;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.lead{color:var(--sub);font-size:14px}
+.note{font-size:12px;color:var(--sub)}
+.credit{font-size:11px;line-height:1.5;color:var(--sub);border-bottom:1px dashed var(--rule);padding-bottom:8px;display:flex;flex-direction:column;gap:2px}
+.no{font-family:var(--f-mono);font-size:13px;color:var(--chalk);letter-spacing:.06em}
+.mune{background:var(--chalk-soft);border-radius:6px;padding:12px 14px;font-size:15px}
+.voice{border-left:3px solid var(--rule);padding:4px 0 4px 12px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.voice .tag{font-size:12px;font-weight:700;color:var(--sub)}
+.voice cite{font-style:normal;font-size:12px;color:var(--sub);display:block}
+.gap{border:1px dashed var(--chalk);border-radius:6px;padding:8px 12px;font-size:14px}
+.gap b{color:var(--chalk)}
+.group{font-family:var(--f-display);font-weight:400;font-size:18px;margin:8px 0 0;padding:0 2px}
+/* 目次 */
+.toc h3{font-size:14px;color:var(--sub);margin-top:6px}
+.toc ol{list-style:none;padding:0;gap:0}
+.toc li a{display:grid;grid-template-columns:30px 1fr;gap:8px;padding:9px 2px;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);font-size:15px;line-height:1.5}
+.toc li a span{font-family:var(--f-mono);color:var(--chalk);font-size:13px;padding-top:2px}
+.toc li:last-child a{border-bottom:0}
+/* 表 */
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.55}
+th,td{border-bottom:1px solid var(--rule);padding:8px 6px;text-align:left;vertical-align:top}
+th{font-weight:700;color:var(--sub);font-size:12px}
+td.num{font-family:var(--f-mono);text-align:right;white-space:nowrap}
+.steps{list-style:none;padding:0;gap:0}
+.steps li{display:grid;grid-template-columns:84px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.steps li:last-child{border-bottom:0}
+.steps .d{font-weight:700;font-size:14px}
+.steps small{display:block;color:var(--sub);font-size:13px}
+.check{list-style:none;padding:0;gap:2px}
+.check label{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;font-size:15px;padding:3px 0}
+.check input{width:18px;height:18px;margin:4px 0 0;accent-color:var(--chalk)}
+.check small{color:var(--sub);font-size:12px}
+/* 記入シート */
+.calc{border:1px solid var(--rule);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--field)}
+.calc .f{display:flex;flex-direction:column;gap:3px}
+.calc .f span{font-size:14px;font-weight:700}
+.calc .f small{font-size:12px;color:var(--sub);font-weight:400}
+.calc input[type=number],.calc input[type=date]{width:100%;min-height:44px;font:500 17px var(--f-mono);color:var(--ink);background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:8px 10px}
+.calc input:focus-visible,.toc a:focus-visible,button:focus-visible{outline:3px solid var(--chalk);outline-offset:2px}
+.res{border-top:1px dashed var(--rule);padding-top:10px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.res .amt{font-family:var(--f-mono);font-size:22px;line-height:1.3;display:block}
+.res .minus{color:var(--chalk)}
+button.fill{align-self:flex-start;font:700 14px var(--f-body);color:var(--ink);background:var(--sheet);border:1px solid var(--ink);border-radius:6px;padding:8px 12px;min-height:40px}
+.top{font-size:13px;color:var(--sub);text-decoration:none;align-self:flex-end}
+.src{padding-left:1.2em;font-size:12px;color:var(--sub);gap:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="sheet" id="top">
+  <p class="no">ムネさんの給料ノート</p>
+  <h1>入社が決まった日から、<br>何をするか。<em>15の特典</em></h1>
+  <p>わしはムネ。募集要項を読む係だ。トヨタ期間工の公式の資料を読み込んで、入社が決まってからの準備を15個にまとめた。</p>
+  <p>行く・行かないは関係ない。考えるときにも使える。ぜんぶ読まなくていい。気になった1個から開け。</p>
+  <p class="note">数字はトヨタ期間工の公式サイトの写し（2026-11-26取得）から。公式に書いていないことは「公式に書いていない」と書いた。記入欄に入れた数字は、このページの中で計算するだけで、どこにも送らない・残らない。</p>
+</section>
+
+<nav class="sheet toc" aria-label="目次">
+  <h2>目次</h2>
+  <h3>入社が決まったら</h3>
+  <ol>
+    <li><a href="#g1"><span>01</span>今の仕事を辞める時期の決め方</a></li>
+    <li><a href="#g2"><span>02</span>今の部屋を出るときの段取り表</a></li>
+    <li><a href="#g3"><span>03</span>最初の給料日まで、手持ちの金がもつか計算する表</a></li>
+    <li><a href="#g4"><span>04</span>入社日に持っていく物リスト</a></li>
+    <li><a href="#g5"><span>05</span>健康診断で見られる項目と、入社できなかったときの旅費</a></li>
+    <li><a href="#g6"><span>06</span>入寮5日間の流れ表</a></li>
+  </ol>
+  <h3>寮の暮らし</h3>
+  <ol>
+    <li><a href="#g7"><span>07</span>寮の暮らしQ&amp;A</a></li>
+    <li><a href="#g8"><span>08</span>寮で買う前にそろっている物リスト</a></li>
+    <li><a href="#g9"><span>09</span>2交替の1週間の生活リズム表</a></li>
+    <li><a href="#g10"><span>10</span>食費の記入シート</a></li>
+  </ol>
+  <h3>入ってから半年</h3>
+  <ol>
+    <li><a href="#g11"><span>11</span>手当が出なくなる欠勤日数メモ</a></li>
+    <li><a href="#g12"><span>12</span>あんたの家賃で計算する「半年の残り方」記入シート</a></li>
+    <li><a href="#g13"><span>13</span>給料明細の読み方</a></li>
+    <li><a href="#g14"><span>14</span>半年後の選び方（更新・満了・満了金の早見表）</a></li>
+    <li><a href="#g15"><span>15</span>正社員登用の条件と実績（5年分）</a></li>
+  </ol>
+  <h3>おわりに</h3>
+  <ol><li><a href="#sources"><span>--</span>出典と確認日</a></li></ol>
+</nav>
+
+<h2 class="group">入社が決まったら</h2>
+
+<!-- 1 -->
+<section class="sheet" id="g1">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「応募から入社までの流れ」「よくある質問」（2026-11-26確認）</span></p>
+  <p class="no">01</p>
+  <h2>今の仕事を<em>辞める時期</em>の決め方</h2>
+  <p class="mune">わしの助言だ。決まりではない。<b>入社日がメールで伝えられてから、今の会社に言え。</b>決まる前に辞めると、間が空いたときに困るのはあんただ。</p>
+  <h3>公式に書いてあること</h3>
+  <ul>
+    <li>合否は、面接のあと通常4日〜1週間でメールが来る。合格した人には、そのあと「入社日」が伝えられる。</li>
+    <li>入社日は、基本的に2週間〜1ヵ月先が示される。面接のときに希望の入社日を聞かれる。</li>
+    <li>生産の状況によっては、2〜3ヵ月先の入社日を案内されることもある（よくある質問）。</li>
+    <li><b>今の仕事の退職時期に合わせた入社時期の調整も、相談できる</b>（よくある質問）。</li>
+    <li>入寮の準備は入社の1週間前から。1日目（月曜）に仮の寮へ集合する（くわしくは06）。</li>
+  </ul>
+  <h3>入社日から逆算する</h3>
+  <ol class="steps">
+    <li><span class="d">集合日</span><span>1日目（月曜）、仮の寮に集合。<small>この日には、もう寮にいる。</small></span></li>
+    <li><span class="d">その前</span><span>移動の日。<small>遠いなら前日に動く。移動にかかる時間は、あんたの住む所で決まる。</small></span></li>
+    <li><span class="d">さらに前</span><span>今の会社の最後の出勤日。<small>荷造り・部屋の明け渡し・役所や郵便の手続きの日を、最後の出勤日と集合日のあいだに取っておけ（02を見ろ）。</small></span></li>
+    <li><span class="d">いちばん前</span><span>今の会社に辞めると伝える日。<small>今の会社の決まり（就業規則）に「何日前までに言う」と書いてある。最後の出勤日から、その日数を引く。</small></span></li>
+  </ol>
+  <p>引いた日が、もう過ぎていたら。入社日をずらす相談ができると公式に書いてある。無理に詰めるな。</p>
+  <p class="note">法律の話は一般論だけ書いておく。期間の決まっていない雇われ方なら、申し出てから2週間で辞められると一般に言われる。ただ、契約の形や会社の決まりで話が変わることがある。わしは断定しない。迷ったら、今の会社の決まりを読んで、それでもわからなければ労働の相談窓口に聞け。</p>
+  <p class="note">もう一つ。今の会社の最後の給料がいつ入るかも、確かめておけ。トヨタの最初の給料は、入社した翌月の25日だ（03で計算する）。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 2 -->
+<section class="sheet" id="g2">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「寮と食事」「募集要項」「よくある質問」（2026-11-26確認）。段取りの順番はムネの助言</span></p>
+  <p class="no">02</p>
+  <h2>今の部屋を<em>出るとき</em>の段取り表</h2>
+  <p class="mune">部屋の解約は、契約書がすべてだ。わしの知ってる「よくある日数」より、あんたの契約書を信じろ。</p>
+  <ul class="check">
+    <li><label><input type="checkbox"><span>賃貸の契約書の「解約の予告」の欄を読む<br><small>何日前に、誰に、どうやって（電話・書面）伝えるかが書いてある。家賃が日割りになるかもここ。</small></span></label></li>
+    <li><label><input type="checkbox"><span>入社日が決まったら、解約を伝える<br><small>解約日は、仮の寮に集合する日より前にする。集合日のあとは、もう部屋に戻らない前提で。</small></span></label></li>
+    <li><label><input type="checkbox"><span>退去の立ち会いの日を決める<br><small>敷金がいくら戻るか・いつ戻るかは、立ち会いと契約書で決まる。戻す先の口座を伝える。</small></span></label></li>
+    <li><label><input type="checkbox"><span>大きい家具・家電をどうするか決める<br><small>寮の部屋にはテレビ・冷蔵庫・ポット・冷暖房・クローゼットが付いていて、寝具も無料で借りられる（公式）。持って行かなくていい物が多い（08を見ろ）。</small></span></label></li>
+    <li><label><input type="checkbox"><span>車・バイクをどうするか決める<br><small>寮には持ち込めない。自転車も寮の許可が要る（公式）。</small></span></label></li>
+    <li><label><input type="checkbox"><span>電気・ガス・水道・ネットの解約の手続きをする<br><small>止める日は、部屋を出る日に合わせる。</small></span></label></li>
+    <li><label><input type="checkbox"><span>郵便の転送の手続きをする<br><small>最初の数日は仮の寮で、配属が決まった週末に工場指定の寮へ移る（公式）。最後の寮の住所は、入ってからでないとわからん。転送先は実家など確実な所にしておき、寮が決まってから届け直すのが手堅い。寮には部屋ごとの郵便受けがある（公式）。</small></span></label></li>
+    <li><label><input type="checkbox"><span>住民票など役所の手続きを確かめる<br><small>住民票をどうするかは、公式に書いていない。合格者への案内で確認しろ。</small></span></label></li>
+  </ul>
+  <p class="note">チェックはこの画面の中だけ。閉じると消える。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 3 -->
+<section class="sheet" id="g3">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「給与・各種手当」「給与シミュレーション」「寮と食事」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">03</p>
+  <h2>最初の給料日まで、<em>手持ちの金がもつか</em>計算する表</h2>
+  <p class="mune">最初の給料は、入社した月には来ない。入社した翌月の25日だ。それまでを手持ちでしのぐ。<br><b>しかも最初の給料は、入社した月に働いた日数の分だけだ。</b>公式の例（5/13入社）は14日分で238,530円。月の終わりに入ると、最初の25日はわずかしか入らん。その次の25日までもつかも見ておけ。</p>
+  <h3>公式に書いてあること</h3>
+  <ul>
+    <li>給料は月末締め、翌月25日振込。25日が土日祝なら前の平日。</li>
+    <li>赴任手当30,000円は、入社日から約2週間後に振込（入社日によっては入社の翌月になる場合あり）。</li>
+    <li>赴任の旅費は、まず本人が立て替える。会社規定の額が、入社約2週間後に振り込まれる。</li>
+    <li>食堂はICカード（従業員証）で払い、翌月の給料から引かれる。食堂のない寮もあり、その場合は工場の食堂（営業時間内）。</li>
+  </ul>
+  <div class="calc" id="c3">
+    <label class="f"><span>入社日</span><input type="date" id="c3-day"></label>
+    <label class="f"><span>いま手元にある金（円）<small>口座と財布の合計</small></span><input type="number" inputmode="numeric" min="0" id="c3-have" placeholder="0"></label>
+    <label class="f"><span>入社日までに入る金（円）<small>今の会社の最後の給料など、入るとわかっている分だけ</small></span><input type="number" inputmode="numeric" min="0" id="c3-in" placeholder="0"></label>
+    <label class="f"><span>入社日までに出ていく金（円）<small>家賃の残り・解約・引っ越し・粗大ごみなど</small></span><input type="number" inputmode="numeric" min="0" id="c3-out" placeholder="0"></label>
+    <label class="f"><span>寮までの交通費（円）<small>立て替える分</small></span><input type="number" inputmode="numeric" min="0" id="c3-trip" placeholder="0"></label>
+    <label class="f"><span>戻ってくる旅費の見込み（円）<small>会社規定の額。立て替えた額と同じとは限らん。わからなければ0</small></span><input type="number" inputmode="numeric" min="0" id="c3-back" placeholder="0"></label>
+    <label class="f"><span>給料日までに落ちる固定費（円）<small>携帯・サブスク・保険・返済など</small></span><input type="number" inputmode="numeric" min="0" id="c3-fix" placeholder="0"></label>
+    <label class="f"><span>入社してから1日に使う現金（円）<small>食堂の分はICカードで翌月の給料から引かれる。それ以外の飲み物・日用品など</small></span><input type="number" inputmode="numeric" min="0" id="c3-day-cash" placeholder="0"></label>
+    <div class="res" id="c3-res" aria-live="polite"><p class="note">入社日と金額を入れると、ここに出る。</p></div>
+  </div>
+  <div class="voice">
+    <span class="tag">経験者の声（人によって違う）</span>
+    <p>「現金は最低5万円ほど」。なければクレジットカード。同期に0円で来て、お金を借りた人がいたという。<cite>mizuno-blog.com（元トヨタ期間工のブログ・紹介リンクあり）2026-10-06</cite></p>
+    <p>現金は最低5万円程度。<cite>jobhouse.jp（求人サイトの編集部）2026-06-08</cite></p>
+  </div>
+  <p class="note">この計算は、あんたが入れた数字だけで出している。祝日は給料日の計算に入れていない。結果は見込みで、約束ではない。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 4 -->
+<section class="sheet" id="g4">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「よくある質問」「募集要項」「寮と食事」（2026-11-26確認）、経験者の声は各行に記載</span></p>
+  <p class="no">04</p>
+  <h2>入社日に<em>持っていく物</em>リスト</h2>
+  <p class="mune">正しい持ち物は、合格した人に届くメールに書いてある（公式）。下はそのメールが来るまでの下書きだ。<b>メールと違ったら、メールが正しい。</b></p>
+  <h3>持って行かなくていい物（公式）</h3>
+  <p>寝具（無料で借りられる）。作業上着・帽子・安全靴（無料で貸してくれる）。部屋のテレビ・冷蔵庫・ポット・冷暖房。公式は「カバン一つで赴任可能」と書いている。</p>
+  <h3>経験者が挙げている物（人によって違う）</h3>
+  <ul class="check">
+    <li><label><input type="checkbox"><span>印鑑（シャチハタ不可）<small>　mizuno-blog.com</small></span></label></li>
+    <li><label><input type="checkbox"><span>通帳・キャッシュカード<small>　mizuno-blog.com</small></span></label></li>
+    <li><label><input type="checkbox"><span>記入済みの誓約書<small>　mizuno-blog.com</small></span></label></li>
+    <li><label><input type="checkbox"><span>年金手帳<small>　mizuno-blog.com</small><br><small>ムネの補足：手帳がない人は、基礎年金番号がわかる書類でいいか、合格者への案内で確かめろ。</small></span></label></li>
+    <li><label><input type="checkbox"><span>雇用保険被保険者証<small>　mizuno-blog.com</small></span></label></li>
+    <li><label><input type="checkbox"><span>源泉徴収票（前の会社でもらった人）<small>　mizuno-blog.com</small></span></label></li>
+    <li><label><input type="checkbox"><span>運転免許証など、身分がわかる物<small>　mizuno-blog.com</small></span></label></li>
+    <li><label><input type="checkbox"><span>現金（最低5万円ほど）<small>　mizuno-blog.com・jobhouse.jp</small></span></label></li>
+    <li><label><input type="checkbox"><span>着替え3〜5日分<small>　jobhouse.jp</small></span></label></li>
+  </ul>
+  <p class="note">出典：mizuno-blog.com（元トヨタ期間工のブログ・紹介リンクあり）2026-10-06／jobhouse.jp（求人サイトの編集部）2026-06-08。経験者の声で、人によって違う。最後はメールの案内で確かめろ。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 5 -->
+<section class="sheet" id="g5">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「応募から入社までの流れ」「よくある質問」「給与・各種手当」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">05</p>
+  <h2>健康診断で見られる項目と、<em>入社できなかったときの旅費</em></h2>
+  <h3>公式に書いてあること</h3>
+  <ul>
+    <li>健康診断は入社前ではなく、入社初日（よくある質問）。流れの説明では、仮の寮に入った2日目（火曜）の朝8時からバスで移動して受ける。どちらも入社の手続きと同じ日だ。</li>
+    <li>3日目（水曜）は適性検査。関節や指の動き、握力、手先の器用さを見る。</li>
+    <li>赴任の旅費は本人が立て替え、入社約2週間後に会社規定の額が振り込まれる。帰りの旅費（帰任旅費）は、契約を満了した人だけ。</li>
+  </ul>
+  <div class="gap"><b>公式に書いていない：</b>健康診断の項目と、診断の結果で入社できなかったときの旅費の扱い。<b>合格者への案内で確認しろ。</b></div>
+  <div class="voice">
+    <span class="tag">経験者・第三者の話（人によって違う）</span>
+    <p>血圧・血液・尿が落ちやすい。<cite>kikankou-dream.com（元期間工のブログ・紹介リンクあり）</cite></p>
+    <p>健康診断で引っかかり、1週間寮で待ってから入社した。<cite>kikankou.co.jp（期間工の紹介サイト・紹介リンクあり）2026-02-16。時期不明・旧制度のころの話</cite></p>
+  </div>
+  <p class="mune">わしに言えるのは一つだけだ。持病や飲んでる薬があるなら、合格者への案内に書いてある連絡先に、先に聞いておけ。当日になって困るのは、あんただ。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 6 -->
+<section class="sheet" id="g6">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「応募から入社までの流れ」「募集要項」（2026-11-26確認）</span></p>
+  <p class="no">06</p>
+  <h2>入寮<em>5日間</em>の流れ表</h2>
+  <p class="mune">月曜に集まって、金曜に自分の寮へ移る。公式の流れをそのまま並べた。</p>
+  <ol class="steps">
+    <li><span class="d">1日目（月）</span><span>集合・仮の寮に入る<small>自分の家から交通機関で、仮の寮「第2聖心清風西寮」へ。名鉄「土橋駅」から無料のシャトルバスがある。</small></span></li>
+    <li><span class="d">2日目（火）</span><span>健康診断・入社の手続き<small>朝8時からバスで移動して健康診断。そのあと入社の説明と書類づくり。17時ごろ終わって寮へ戻る。</small></span></li>
+    <li><span class="d">3日目（水）</span><span>適性検査<small>関節や指の動きの確認、握力、手先の器用さ。</small></span></li>
+    <li><span class="d">4日目（木）</span><span>安全教育・配属先の工場が決まる<small>1日座学。社員証と健康保険証が渡される。最後の時間に「配属先工場」が知らされる。</small></span></li>
+    <li><span class="d">5日目（金）</span><span>自分の寮へ移る<small>午前中に仮の寮を出る。「配属部署」が決まり、仕事の説明と制服の支給。バスで勤務地へ移って、指定の寮に入る。</small></span></li>
+    <li><span class="d">その翌日</span><span>正式に勤務が始まる<small>公式の書き方のまま。工場に配属された初日は、入社オリエンテーションのあと勤務開始。</small></span></li>
+  </ol>
+  <p class="note">公式には「採用状況や時期により若干採用の流れが変更になることもある」と書いてある。実際の日程は合格者への案内で確認しろ。どの工場・どの寮になるかは、4日目まで決まらない。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<h2 class="group">寮の暮らし</h2>
+
+<!-- 7 -->
+<section class="sheet" id="g7">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「寮と食事」「よくある質問」「募集要項」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">07</p>
+  <h2>寮の暮らし<em>Q&amp;A</em></h2>
+  <table>
+    <tr><th style="width:34%">聞きたいこと</th><th>公式の答え</th></tr>
+    <tr><td>Wi-Fiはある？</td><td>寮によって違う。入寮のときに確認。</td></tr>
+    <tr><td>自炊はできる？</td><td>個室は火気厳禁で自炊はできない。電子レンジ・電気ポットの持ち込みはできる。食事は寮か工場の食堂。</td></tr>
+    <tr><td>車は持って行ける？</td><td>車・バイクは寮に持ち込めない。自転車は寮の許可が要る。寮からの通勤は徒歩か会社のバス。</td></tr>
+    <tr><td>どこで働く？</td><td>愛知県の豊田市周辺・碧南市・田原市の工場。<b>勤務地は会社が決める。</b>寮の一覧も「豊田市」「高岡・碧南」「田原」の3エリアに分かれている。</td></tr>
+    <tr><td>工程は選べる？</td><td><b>選べない。</b>入社のときの適性検査と、工場の人の足りなさで決まる。</td></tr>
+    <tr><td>寮費は？</td><td>寮費と水道光熱費は原則無料。洗濯コーナーは一部有料。</td></tr>
+    <tr><td>1人部屋？</td><td>募集要項には「1人部屋」とある。ただ寮の一覧には「相部屋」「集合寮」と書かれた寮もある。<b>どの寮になるかは合格者への案内で確認。</b></td></tr>
+    <tr><td>家族と住める？</td><td>寮はすべて単身者用。家族と住むなら自分で部屋を借りて、自宅から通う形。</td></tr>
+  </table>
+  <div class="voice">
+    <span class="tag">経験者・第三者の話（人によって違う）</span>
+    <p>「基本的に無料のインターネットはありません」。田原の寮のまわりは娯楽がほとんどない。<cite>kagepon.com（期間工経験者のブログ・紹介リンクあり）2025-04。情報が古いとの指摘あり</cite></p>
+    <p>完全な個室で、大浴場・サウナ・24時間シャワー・売店があった。壁は少し薄い。<cite>toyotakikankou.com（本人のブログ・広告バナーあり・紹介リンクなし）2026-08-19公開</cite></p>
+  </div>
+  <p class="mune">ネットを毎日使うなら、自分の通信の手段を一つ持って行け。寮にあればもうけもの、くらいでいい。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 8 -->
+<section class="sheet" id="g8">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「寮と食事」「募集要項」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">08</p>
+  <h2>寮で<em>買う前に</em>そろっている物リスト</h2>
+  <p class="mune">着いてすぐ買い物に走るな。まず部屋と共用の場所を見ろ。あるものを二重に買うのが、一番もったいない。</p>
+  <h3>部屋にある物（公式）</h3>
+  <ul>
+    <li>テレビ・冷蔵庫・ポット（備え付け）</li>
+    <li>冷暖房（部屋ごと）</li>
+    <li>クローゼット</li>
+    <li>寝具（無料で借りられる）</li>
+  </ul>
+  <h3>共用の場所にある物（公式の紹介写真の項目）</h3>
+  <ul>
+    <li>大浴場・24時間使えるシャワー・更衣室（鍵付きロッカー）</li>
+    <li>食堂・コーヒーメーカー・自販機コーナー</li>
+    <li>コインランドリー・洗面所（ここでも洗濯できる）</li>
+    <li>部屋ごとの郵便受け・管理室・工場へのバス停</li>
+    <li>サウナ・水風呂（ある寮もある）</li>
+  </ul>
+  <h3>仕事で使う物（公式）</h3>
+  <p>作業上着・帽子・安全靴は無料で貸してくれる。</p>
+  <div class="gap"><b>公式に書いていない：</b>電子レンジ（持ち込みは可）・洗剤・ハンガー・タオル・日用品があるか。寮によって設備も違う。<b>入ってから見て、足りない物だけ買え。</b></div>
+  <div class="voice">
+    <span class="tag">経験者の声（人によって違う）</span>
+    <p>部屋にはベッド・タンス・洗面化粧台・エアコンがあった（アリビオ聖心寮）。<cite>toyotakikankou.com（本人のブログ・広告バナーあり・紹介リンクなし）2026-08-19公開</cite></p>
+  </div>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 9 -->
+<section class="sheet" id="g9">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「募集要項」「給与・各種手当」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">09</p>
+  <h2>2交替の<em>1週間</em>の生活リズム表</h2>
+  <p>公式の募集要項の時間だ。1直と2直を、1週間ごとに入れ替える。実働は7時間35分。</p>
+  <p class="note">公式のページによって終業が10分違うことがある。配属先で確認しろ。</p>
+  <table>
+    <tr><th style="width:22%"></th><th>1直の週</th><th>2直の週</th></tr>
+    <tr><td>働く時間</td><td class="num">6:25〜15:05</td><td class="num">16:00〜翌0:40</td></tr>
+    <tr><td>月〜金</td><td>朝から昼すぎ</td><td>夕方から夜中（深夜勤務を含む）</td></tr>
+    <tr><td>土・日</td><td colspan="2">休み（出勤日は会社のカレンダーによる）</td></tr>
+    <tr><td>寝る時間</td><td>夜のうちに寝る週</td><td>夜中の0:40に仕事が終わってから寝る週</td></tr>
+  </table>
+  <ul>
+    <li>祝日は稼働日。そのかわり、年末年始・お盆・ゴールデンウィークに10日前後の連休がある。</li>
+    <li>配属先によっては、3交替（6:25〜15:05、13:55〜22:35、22:10〜翌6:50）や常昼（7:55〜16:50）の場合もある。</li>
+    <li>残業は、配属先や生産の状況で出る場合がある。</li>
+  </ul>
+  <div class="gap"><b>公式の写しにない：</b>起きる時刻・寮を出る時刻。寮から工場までのバスの時間で変わる。<b>配属の寮が決まってから、自分で書き込め。</b></div>
+  <div class="voice">
+    <span class="tag">経験者の声（人によって違う）</span>
+    <p>日勤の週は16時25分ごろ寮に帰り、風呂や勉強をして21時半に寝る。<cite>Xの投稿（2026-10-20）の要旨</cite></p>
+    <p>夜勤は最初かなりきつかったが、約1か月で慣れた。<cite>kikankou.co（2年満了した人のブログ・紹介リンクあり）2020-11-14公開</cite></p>
+  </div>
+  <p class="mune">1週間ごとに、朝の勤務と夜中までの勤務が入れ替わる。公式に書いてあるのはそこまでだ。慣れ方は、わしは働いたことがないから、言えるのはここまでだ。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 10 -->
+<section class="sheet" id="g10">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「寮と食事」「給与シミュレーション」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">10</p>
+  <h2><em>食費</em>の記入シート</h2>
+  <p>寮は家賃が0円。家賃がかからん分、食費がよく見える。食堂の分は、ICカードで払って<b>翌月の給料から引かれる</b>（公式）。財布から出る分と分けて考えろ。</p>
+  <div class="calc" id="c10">
+    <label class="f"><span>出勤日、食堂で1日に使う額（円）<small>朝・昼・夜の合計。食堂の値段は寮で見てから入れ直せ</small></span><input type="number" inputmode="numeric" min="0" id="c10-a" placeholder="0"></label>
+    <label class="f"><span>1か月の出勤日数<small>公式の給与の例は「稼働日数21日」</small></span><input type="number" inputmode="numeric" min="0" id="c10-b" value="21"></label>
+    <label class="f"><span>休みの日、1日に使う食費（円）</span><input type="number" inputmode="numeric" min="0" id="c10-c" placeholder="0"></label>
+    <label class="f"><span>1か月の休みの日数<small>出勤日数と休みの日数を合わせて30日前後になるように</small></span><input type="number" inputmode="numeric" min="0" id="c10-d" placeholder="0"></label>
+    <label class="f"><span>コンビニ・自販機・飲み物（1か月・円）</span><input type="number" inputmode="numeric" min="0" id="c10-e" placeholder="0"></label>
+    <div class="res" id="c10-res" aria-live="polite"><p class="note">数字を入れると、ここに出る。</p></div>
+  </div>
+  <p class="note">公式の給与シミュレーションは、食費・通信費・遊び代などの生活費を「月65,000円と仮定」している（食費だけの額ではない）。</p>
+  <div class="voice">
+    <span class="tag">経験者の声（人によって違う）</span>
+    <p>8月の支出は66,031円、そのうち食費が32,483円。<cite>note.com（元トヨタ期間工の水野氏・紹介リンクは別のブログにあり）2025-09-30</cite></p>
+    <p>給料から引かれた食事代は、月に約1.8〜2.8万円だった（2021〜22年の明細）。<cite>toyotakikankou.com（本人のブログ・広告バナーあり・紹介リンクなし）。当時の制度・値段</cite></p>
+  </div>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<h2 class="group">入ってから半年</h2>
+
+<!-- 11 -->
+<section class="sheet" id="g11">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「給与・各種手当」「よくある質問」（2026-11-26確認）</span></p>
+  <p class="no">11</p>
+  <h2>手当が出なくなる<em>欠勤日数</em>メモ</h2>
+  <p class="mune">ここが一番大事だ。休んだ日数で、もらえる額が大きく変わる。スマホに写しておけ。</p>
+  <table>
+    <tr><th style="width:30%">手当</th><th>出なくなる条件（公式）</th></tr>
+    <tr><td><b>入社時特別手当 40万円</b></td><td>入社日から<b>入社した翌月の末まで</b>に、欠勤が<b>5日以上</b>あると対象外。入社した翌月の末に在籍していることも条件。</td></tr>
+    <tr><td><b>6ヵ月満了特別手当 60万円</b></td><td>入社日から<b>6ヵ月満了日まで</b>に、欠勤が<b>8日以上</b>あると対象外。6ヵ月（2回目の契約）を満了した人だけ。</td></tr>
+    <tr><td><b>満了慰労金</b></td><td>満了した人に、出勤した日数分。欠勤・遅刻・早退・休職・特休0%の取得日・休日出勤日は、<b>その日の分が出ない</b>。</td></tr>
+    <tr><td><b>満了報奨金</b></td><td>欠勤・遅刻・早退・休職の<b>ない月だけ</b>、1日1,500円×その月の出勤日数。<b>1回でも休むと、その月の分がまるごと出ない。</b>特休0%の取得日・休日出勤日も対象外。</td></tr>
+  </table>
+  <ul>
+    <li>40万と60万は、2026年9月以降に入社した人が対象。期間は変更になる場合がある（公式）。</li>
+    <li>満了慰労金と満了報奨金は<b>別物</b>で、条件も違う。2つを合わせて「満了金」と呼ぶ。途中で辞めると、どちらも出ない。</li>
+    <li>有給休暇は、入社から6ヵ月たってから10日付く（公式）。<b>最初の半年は有給がない</b>前提で考えろ。</li>
+    <li>計算の例：出勤20日の月なら、報奨金は1,500円×20日＝3万円。その月に1回遅刻すると、この3万円が出ない。</li>
+  </ul>
+  <div class="gap"><b>公式に書いていない：</b>遅刻や早退を「欠勤」の日数に数えるか。体調を崩して休んだ日の扱い。<b>合格者への案内か、職場で確認しろ。</b></div>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 12 -->
+<section class="sheet" id="g12">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「給与シミュレーション」「寮と食事」（2026-11-26確認）</span></p>
+  <p class="no">12</p>
+  <h2>あんたの家賃で計算する<br><em>「半年の残り方」</em>記入シート</h2>
+  <p>今の暮らしを続けたときと、寮で働いたときを、同じ月数で、あんたの数字で比べる。金額は約束しない。あんたの数字を入れると、こう見える、というだけだ。</p>
+  <div class="calc" id="c12">
+    <label class="f"><span>比べる月数<small>今の暮らしも寮の生活費も、この月数で掛ける</small></span><input type="number" inputmode="numeric" min="1" id="c12-mon" value="6"></label>
+    <h3>いまの暮らし（1か月）</h3>
+    <label class="f"><span>今の手取り（円）</span><input type="number" inputmode="numeric" min="0" id="c12-net" placeholder="0"></label>
+    <label class="f"><span>家賃（円）</span><input type="number" inputmode="numeric" min="0" id="c12-rent" placeholder="0"></label>
+    <label class="f"><span>光熱費（円）</span><input type="number" inputmode="numeric" min="0" id="c12-util" placeholder="0"></label>
+    <label class="f"><span>食費（円）</span><input type="number" inputmode="numeric" min="0" id="c12-food" placeholder="0"></label>
+    <label class="f"><span>そのほか（通信・保険・返済・遊び）（円）</span><input type="number" inputmode="numeric" min="0" id="c12-other" placeholder="0"></label>
+    <h3>寮で働く</h3>
+    <label class="f"><span>比べる月数のあいだに入る見込みの総額（円）<small>税金・社会保険料を引く前</small></span><input type="number" inputmode="numeric" min="0" id="c12-gross" placeholder="0"></label>
+    <button type="button" class="fill" id="c12-fill">公式の例の数字を入れる</button>
+    <p class="gap" id="c12-warn">公式の例は12月25日までの約7か月分だ。今の暮らしの半年とは<b>期間がそろっていない</b>。だから「公式の例の数字を入れる」を押すと、比べる月数が7になる。今の暮らしも7か月で比べる。</p>
+    <p class="note" id="c12-fillnote">公式の給与シミュレーション（5/13入社・独身・残業20時間）で、赴任手当から半年の満了のあとの給料までの8回を足すと3,563,260円。40万・60万・満了金の条件を全部満たした場合で、税金・社会保険料は考えていない。公式も「実際の支給額を保証するものではありません」と書いている。</p>
+    <label class="f"><span>引かれる割合（%）<small>税金・社会保険料。公式には書いていない。下の2つを入れると、今の明細から割合を出す</small></span><input type="number" inputmode="decimal" min="0" max="100" id="c12-rate" placeholder="0"></label>
+    <label class="f"><span>今の明細の総支給（円）</span><input type="number" inputmode="numeric" min="0" id="c12-pg" placeholder="0"></label>
+    <label class="f"><span>今の明細の手取り（円）</span><input type="number" inputmode="numeric" min="0" id="c12-pn" placeholder="0"></label>
+    <label class="f"><span>寮での食費（1か月・円）<small>10の記入シートの合計を入れろ</small></span><input type="number" inputmode="numeric" min="0" id="c12-dfood" placeholder="0"></label>
+    <label class="f"><span>寮でのそのほか（1か月・円）</span><input type="number" inputmode="numeric" min="0" id="c12-dother" placeholder="0"></label>
+    <div class="res" id="c12-res" aria-live="polite"><p class="note">数字を入れると、ここに出る。</p></div>
+  </div>
+  <p class="note">ざっくりの比べ方だ。給料が入る月と働いた月は少しずれる。手当の大きい月は引かれる割合も変わる。翌年の住民税のことも入っていない。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 13 -->
+<section class="sheet" id="g13">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「給与シミュレーション」「よくある質問」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">13</p>
+  <h2>給料明細の<em>読み方</em></h2>
+  <p>公式の給与シミュレーションの「毎月の給与イメージ」に並んでいる項目だ。この例（5/13入社）の「7月分給与」を読む。</p>
+  <table>
+    <tr><th>項目</th><th>中身</th><th style="width:28%">この例では</th></tr>
+    <tr><td>日給×日数</td><td>基本の日給×出勤した日数</td><td class="num">11,150円×21日</td></tr>
+    <tr><td>超過勤務手当</td><td>残業の分</td><td class="num">38,230円<br>（20時間）</td></tr>
+    <tr><td>深夜手当</td><td>2直の夜中の分</td><td class="num">15,440円<br>（35時間）</td></tr>
+    <tr><td>時間帯手当</td><td>公式の表の項目名のまま</td><td class="num">28,760円<br>（78.25時間）</td></tr>
+    <tr><td><b>ベース月収</b></td><td>ここまでの合計</td><td class="num">316,580円</td></tr>
+    <tr><td><b>特別手当</b></td><td><b>入社時特別手当40万はここに乗る</b>（入社翌々月の給料）</td><td class="num">400,000円</td></tr>
+    <tr><td>部屋代・光熱費</td><td>寮なので0円</td><td class="num">0円</td></tr>
+    <tr><td>合計</td><td></td><td class="num">716,580円</td></tr>
+  </table>
+  <p>同じ例の「12月分給与」には、<b>6ヵ月満了特別手当600,000円・満了慰労金215,900円・満了報奨金190,500円</b>が別々の行で乗っている（合計1,311,830円）。慰労金と報奨金は、行が分かれている。</p>
+  <p>赴任手当（30,000円）と家族手当も、それぞれの行がある。</p>
+  <div class="gap"><b>公式の例は、税金・社会保険料を考えていない。</b>公式のよくある質問には「社会保険料、税金、食費などが控除された額が手取り」とあるが、引かれる額の例は公式に書いていない。公式の表の「7月分給与」は、6月に働いた分が7月25日に入る、という並びだ（月末締め・翌月25日払い）。あんたの明細でも日付を確かめろ。</div>
+  <div class="voice">
+    <span class="tag">経験者の声（人によって違う）</span>
+    <p>1か月目の明細で引かれていたのは、雇用保険・健康保険・厚生年金・所得税・食事代。<cite>toyotakikankou.com（本人のブログ・広告バナーあり・紹介リンクなし）2021〜22年の明細。当時の制度</cite></p>
+  </div>
+  <p class="mune">40万が乗る月は、明細の「特別手当」の行を見ろ。乗っていなければ、すぐ職場で聞け。黙って待つな。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 14 -->
+<section class="sheet" id="g14">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「募集要項」「給与・各種手当」「よくある質問」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">14</p>
+  <h2>半年後の選び方<br>（<em>更新・満了・満了金</em>の早見表）</h2>
+  <p>契約は最初が3ヵ月。更新すると3ヵ月（通算6ヵ月）、そのあとは6ヵ月ずつ、最後は5ヵ月で、最長2年11ヵ月（公式）。</p>
+  <table>
+    <tr><th>区切り</th><th>その区切りで入る満了金<br>（慰労金＋報奨金）</th><th>そのほか</th></tr>
+    <tr><td style="white-space:nowrap">3ヵ月で<br>満了</td><td>慰労金は日当500円、報奨金は休みのない月に日当1,500円</td><td>60万は出ない</td></tr>
+    <tr><td style="white-space:nowrap">6ヵ月</td><td class="num">390,400円</td><td>60万（欠勤8日未満）</td></tr>
+    <tr><td style="white-space:nowrap">12ヵ月</td><td class="num">488,000円</td><td></td></tr>
+    <tr><td style="white-space:nowrap">18ヵ月</td><td class="num">512,400円</td><td></td></tr>
+    <tr><td style="white-space:nowrap">24ヵ月</td><td class="num">536,800円</td><td></td></tr>
+    <tr><td style="white-space:nowrap">30ヵ月</td><td class="num">561,200円</td><td></td></tr>
+    <tr><td style="white-space:nowrap">35ヵ月</td><td class="num">576,000円</td><td>最後の契約</td></tr>
+  </table>
+  <p class="note">公式の表のまま。6〜30ヵ月は稼働122日、35ヵ月目は120日の場合で、入社日で変わる。6ヵ月まで続けた場合、3ヵ月の区切りでは支給されず、6ヵ月のあとにまとめて出る。13の例（5/13入社）の12月分は、満了慰労金215,900円＋満了報奨金190,500円＝406,400円で、この表（稼働122日の場合）と額が違う。稼働日数は入社日で変わる（公式）。どの区切りも、途中で辞めると出ない。</p>
+  <h3>3つの道</h3>
+  <ul>
+    <li><b>更新する</b>：会社が「生産の見通し・業務量」と「本人の勤務成績・態度・能力・健康・体力」を考えて、必要と判断したときだけ更新される（公式）。希望すれば必ず、ではない。</li>
+    <li><b>区切りで満了して辞める</b>：その区切りの満了金が出る。帰りの旅費（帰任旅費）は満了した人だけ。</li>
+    <li><b>区切りの途中で辞める</b>：満了金は出ない。帰任旅費も出ない。</li>
+  </ul>
+  <p>6ヵ月をこえて続けると：有給休暇が10日付く（入社から6ヵ月後）。家族手当は、6ヵ月以降に更新した人で、18歳未満の子1人につき月25,000円。</p>
+  <div class="gap"><b>公式に書いていない：</b>満了したあと寮にいられる日数、寮を出るときにかかる費用。<b>職場か寮の管理室で確認しろ。</b></div>
+  <div class="voice">
+    <span class="tag">経験者・第三者の話（人によって違う）</span>
+    <p>更新の2〜4週間前に「更新しますか？」と聞かれる。<cite>kureba.co.jp（期間工の紹介サイト・紹介リンクあり）2026-05-19</cite></p>
+    <p>早い人は1〜3か月で辞める。<cite>mizuno-blog.com（元トヨタ期間工のブログ・紹介リンクあり）2026-08-05</cite></p>
+  </div>
+  <p class="mune">辞めるなら、区切りで辞めろ。それだけで残る金が変わる。決めるのは、更新を聞かれる前だ。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<!-- 15 -->
+<section class="sheet" id="g15">
+  <p class="credit"><span>ムネさんの給料ノート作成／トヨタ自動車・応募の窓口の公式資料ではありません</span><span>出典：トヨタ期間工 公式「正社員登用」（2026-11-26確認）、経験者の声は下に記載</span></p>
+  <p class="no">15</p>
+  <h2>正社員登用の<em>条件と実績</em>（5年分）</h2>
+  <h3>条件（公式）</h3>
+  <ul>
+    <li>勤務期間1年以上</li>
+    <li>職場の上長の推薦</li>
+    <li>登用試験（筆記試験）</li>
+    <li>集団面接</li>
+  </ul>
+  <p>上長の推薦を受け、本人にその気があれば、登用試験の案内が来る。満了を待たずに案内が来る場合もある（公式）。</p>
+  <h3>実績（公式・直近5年）</h3>
+  <table>
+    <tr><th>年度</th><th style="text-align:right">登用された人数</th></tr>
+    <tr><td>2021年度</td><td class="num">136名</td></tr>
+    <tr><td>2022年度</td><td class="num">155名</td></tr>
+    <tr><td>2023年度</td><td class="num">226名</td></tr>
+    <tr><td>2024年度</td><td class="num">310名</td></tr>
+    <tr><td>2025年度</td><td class="num">305名</td></tr>
+    <tr><td><b>合計</b></td><td class="num"><b>1,132人</b></td></tr>
+  </table>
+  <div class="gap"><b>公式に書いていない：</b>何人が試験を受けて、そのうち何人が受かったか（受験者数・合格率）。だから「受かりやすい」とも「難しい」とも、わしは言えない。</div>
+  <p>もう一つ、「JOIN3」という制度がある。2年11ヵ月を満了した人に、正社員を前提とした就職先を紹介する（公式）。<b>トヨタの正社員になる制度ではない。</b></p>
+  <div class="voice">
+    <span class="tag">経験者の声（人によって違う）</span>
+    <p>登用試験は面接と筆記（国語・数学、中学生レベル）と記述。<cite>kikankou-hikaku.com（経験者のサイト・紹介リンクあり）2026-03-13</cite></p>
+    <p>推薦するのは組長。<cite>toyotakikankou.com（本人のブログ・広告バナーあり・紹介リンクなし）2021〜22年の体験</cite></p>
+    <p>年齢的に組長止まりだと感じて、登用試験は受けずに満了で辞めた（26歳・田原）。<cite>hatara.co.jp（求人メディアのインタビュー）2019年ごろと推定</cite></p>
+  </div>
+  <p class="mune">公式に書いてある条件は4つ。1年以上の勤務、上長の推薦、筆記の登用試験、集団面接だ。受かりやすさは書いていない。わしは働いたことがないから、言えるのはここまでだ。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+<section class="sheet" id="sources">
+  <h2 style="font-size:17px">出典と確認日</h2>
+  <ul class="src">
+    <li>トヨタ期間工 公式サイト（www.t-kikan.jp）「募集要項」「給与・各種手当」「給与シミュレーション」「寮と食事」「応募から入社までの流れ」「よくある質問」「正社員登用」：2026-11-26取得の写しで確認</li>
+    <li>mizuno-blog.com（元トヨタ期間工のブログ・紹介リンクあり）：持ち物・現金 2026-10-06／辞める時期 2026-08-05</li>
+    <li>note.com 水野氏（同じ発信者。紹介リンクは別のブログにあり）：支出と食費 2025-09-30</li>
+    <li>jobhouse.jp（求人サイトの編集部）：着替え・現金 2026-06-08</li>
+    <li>kikankou-dream.com（元期間工のブログ・紹介リンクあり）：健康診断。記事の日付なし</li>
+    <li>kikankou.co.jp（期間工の紹介サイト・紹介リンクあり）：健康診断 2026-02-16（時期不明・旧制度のころの話）</li>
+    <li>kikankou.co（2年満了した人のブログ・紹介リンクあり）：夜勤の慣れ 2020-11-14公開</li>
+    <li>kagepon.com（期間工経験者のブログ・紹介リンクあり）：寮のネット・田原 2025-04（情報が古いとの指摘あり）</li>
+    <li>toyotakikankou.com（本人のブログ・広告バナーあり・紹介リンクなし）：寮 2026-08-19公開／明細・食事代・推薦 2021〜22年の体験</li>
+    <li>kureba.co.jp（期間工の紹介サイト・紹介リンクあり）：更新の打診 2026-05-19</li>
+    <li>kikankou-hikaku.com（経験者のサイト・紹介リンクあり）：登用試験 2026-03-13</li>
+    <li>hatara.co.jp（求人メディアのインタビュー）：登用試験を受けなかった話 2019年ごろと推定</li>
+    <li>Xの投稿（アカウント名は出さない）：1直の週の過ごし方 2026-10-20</li>
+  </ul>
+  <p class="note">経験者の声は本人の申告で、確かめていない。人によって違う。紹介で利益を得る立場の発信者も多い。</p>
+  <p class="note">ムネさんの給料ノート作成。トヨタ自動車・応募の窓口の公式資料ではありません。「ムネさん」は架空の登場人物で、期間工の経験者ではありません。金額・条件は確認日の時点のもので、変わることがあります。</p>
+  <a class="top" href="#top">目次へ ↑</a>
+</section>
+
+</div>
+<script>
+/* 記入シートの計算。入力はこの画面の中だけで使い、保存も送信もしない */
+const $ = id => document.getElementById(id);
+const v = id => { const n = parseFloat($(id).value); return isFinite(n) ? n : 0; };
+const yen = n => (n < 0 ? "−" : "") + Math.abs(Math.round(n)).toLocaleString("ja-JP") + "円";
+const amt = (n, label) => '<span>' + label + '</span><span class="amt' + (n < 0 ? ' minus' : '') + '">' + yen(n) + '</span>';
+const wd = ["日","月","火","水","木","金","土"];
+
+/* 03 最初の給料日まで */
+function calc3(){
+  const s = $("c3-day").value;
+  const box = $("c3-res");
+  if (!s) { box.innerHTML = '<p class="note">入社日と金額を入れると、ここに出る。</p>'; return; }
+  const [y, m, d] = s.split("-").map(Number);
+  const start = new Date(y, m - 1, d);
+  const pay = new Date(y, m, 25);              /* 入社した翌月の25日 */
+  if (pay.getDay() === 6) pay.setDate(24);     /* 土曜なら金曜 */
+  if (pay.getDay() === 0) pay.setDate(23);     /* 日曜なら金曜 */
+  const days = Math.round((pay - start) / 86400000);
+  if ($("c3-have").value === "") { box.innerHTML = '<p class="note">手元の金を入れると判定が出る。</p>'; return; }
+  const base = v("c3-have") + v("c3-in") - v("c3-out") - v("c3-trip") - v("c3-fix");
+  const cash = v("c3-day-cash");
+  const low = base - cash * Math.min(14, days);           /* 赴任手当と旅費が入る前 */
+  const last = base - cash * days + 30000 + v("c3-back");   /* 給料日の前日 */
+  box.innerHTML =
+    '<p>最初の給料日は <b>' + (pay.getMonth() + 1) + '月' + pay.getDate() + '日（' + wd[pay.getDay()] + '）</b> の見込み。入社日から <b>' + days + '日</b>。</p>' +
+    amt(low, '入社から約2週間、赴任手当が入る前に残る見込み') +
+    amt(last, '最初の給料日の前日に残る見込み（赴任手当3万と、入れた旅費の戻りを足した）') +
+    (Math.min(low, last) < 0
+      ? '<p class="minus">足りん。出ていく金を減らせるか、先に見直せ。入社時期の調整を相談できることは、公式のよくある質問に書いてある。</p>'
+      : '<p>この数字なら、もつ。ただ余裕は持っておけ。</p>') +
+    (d >= 16 ? '<p class="minus">入社が月の後半だ。最初の給料は働いた日数の分だけで少ない。その次の25日まで、あと1か月分の現金も見ておけ。</p>' : '') +
+    '<p class="note">赴任手当は入社日によって入社の翌月になる場合がある（公式）。祝日は計算に入れていない。最初の給料は働いた日数の分だけなので、その次の25日までもつかも見ておけ。</p>';
+}
+["c3-day","c3-have","c3-in","c3-out","c3-trip","c3-back","c3-fix","c3-day-cash"].forEach(id => $(id).addEventListener("input", calc3));
+
+/* 10 食費 */
+function calc10(){
+  const empty = $("c10-b").value === "";
+  const days = empty ? 21 : v("c10-b");
+  const card = v("c10-a") * days;
+  const wallet = v("c10-c") * v("c10-d") + v("c10-e");
+  const box = $("c10-res");
+  if (card + wallet === 0) { box.innerHTML = '<p class="note">数字を入れると、ここに出る。</p>'; return; }
+  box.innerHTML = amt(card + wallet, '1か月の食費') +
+    (empty ? '<p class="note">出勤日数が空なので、21日で計算した。</p>' : '') + '<p>うち食堂の分（翌月の給料から引かれる見込み）：<b>' + yen(card) + '</b><br>財布から出る分：<b>' + yen(wallet) + '</b></p>';
+}
+["c10-a","c10-b","c10-c","c10-d","c10-e"].forEach(id => $(id).addEventListener("input", calc10));
+
+/* 12 半年の残り方 */
+function rate12(){
+  const g = v("c12-pg"), n = v("c12-pn");
+  if (g > 0 && n > 0 && n <= g) $("c12-rate").value = (Math.round((1 - n / g) * 1000) / 10).toString();
+}
+function calc12(){
+  const mon = $("c12-mon").value === "" ? 6 : Math.max(1, v("c12-mon"));
+  const now = (v("c12-net") - v("c12-rent") - v("c12-util") - v("c12-food") - v("c12-other")) * mon;
+  const gross = v("c12-gross");
+  const rate = Math.min(100, Math.max(0, v("c12-rate"))) / 100;
+  const dorm = gross * (1 - rate) - (v("c12-dfood") + v("c12-dother")) * mon;
+  const box = $("c12-res");
+  if (v("c12-net") === 0 && gross === 0) { box.innerHTML = '<p class="note">数字を入れると、ここに出る。</p>'; return; }
+  const hasNow = $("c12-net").value !== "";
+  box.innerHTML =
+    (hasNow ? amt(now, '今の暮らしを' + mon + 'か月続けて残る見込み') : '<p class="note">今の手取りを入れると、今の暮らしとの比べが出る。</p>') +
+    (gross > 0 ? amt(dorm, '寮で' + mon + 'か月働いて残る見込み（引かれる割合 ' + (rate * 100).toFixed(1) + '% で計算）') : '<p class="note">入る見込みの総額を入れると、寮の側が出る。</p>') +
+    (hasNow ? '<p>今の家賃と光熱費は、' + mon + 'か月で <b>' + yen((v("c12-rent") + v("c12-util")) * mon) + '</b>。寮ならこの分がかからない（寮費・水道光熱費は原則無料）。</p>' : '') +
+    (gross > 0 && rate === 0 ? '<p class="note">引かれる割合が0%のままだ。税金・社会保険料を引く前の数字になっている。</p>' : '') +
+    '<p class="note">あんたが入れた数字での計算だ。この額が残ると約束するものではない。</p>';
+}
+$("c12-fill").addEventListener("click", () => { $("c12-gross").value = 3563260; $("c12-mon").value = 7; calc12(); });
+["c12-pg","c12-pn"].forEach(id => $(id).addEventListener("input", () => { rate12(); calc12(); }));
+["c12-mon","c12-net","c12-rent","c12-util","c12-food","c12-other","c12-gross","c12-rate","c12-dfood","c12-dother"].forEach(id => $(id).addEventListener("input", calc12));
+</script>
+</body>
+</html>
