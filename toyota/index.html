@@ -212,7 +212,7 @@ const AD_TEXT = "【PR】下の【トヨタ自動車の期間工・期間従業�
    A8のヘルプ：テキスト素材の文言変更・リンク部分だけの使用は禁止。コードはこのまま使い、見た目は外側のCSSだけで整える */
 const AD_HTML = '<a href="https://px.a8.net/svt/ejp?a8mat=4BGTLN+2BY7E2+5SAW+5YRHE" rel="nofollow">【トヨタ自動車の期間工・期間従業員】</a>\n<img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BGTLN+2BY7E2+5SAW+5YRHE" alt="">';
 /* GA4の測定ID（診断のトップと同じもの）。空なら計測タグを読まない */
-const GA4 = "";
+const GA4 = "G-FRXCTXP7MK";
 if (GA4) { const t = document.createElement("script"); t.async = true; t.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4; document.head.appendChild(t);
   window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); }; gtag("js", new Date()); gtag("config", GA4); }
 const q = new URLSearchParams(location.search);
